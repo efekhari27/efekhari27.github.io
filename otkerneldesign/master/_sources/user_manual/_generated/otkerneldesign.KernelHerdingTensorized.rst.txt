@@ -1,0 +1,9 @@
+﻿KernelHerdingTensorized
+======================================
+
+.. currentmodule:: otkerneldesign
+
+.. autoclass:: KernelHerdingTensorized
+
+   
+   

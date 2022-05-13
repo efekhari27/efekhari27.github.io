@@ -1,0 +1,9 @@
+﻿GreedySupportPoints
+==================================
+
+.. currentmodule:: otkerneldesign
+
+.. autoclass:: GreedySupportPoints
+
+   
+   

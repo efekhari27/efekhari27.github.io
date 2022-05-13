@@ -1,0 +1,12 @@
+
+:orphan:
+
+.. _sphx_glr_auto_example_sg_execution_times:
+
+Computation times
+=================
+**00:05.313** total execution time for **auto_example** files:
+
++--------------------------------------------------------------------------------------------------+-----------+--------+
+| :ref:`sphx_glr_auto_example_plot_kernel_herding_example.py` (``plot_kernel_herding_example.py``) | 00:05.313 | 0.0 MB |
++--------------------------------------------------------------------------------------------------+-----------+--------+

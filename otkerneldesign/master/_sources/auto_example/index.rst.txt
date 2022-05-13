@@ -1,0 +1,50 @@
+:orphan:
+
+
+
+.. _sphx_glr_auto_example:
+
+
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The aim of this page is to provide simple examples where kernel herding is applied to multivari...">
+
+.. only:: html
+
+ .. figure:: /auto_example/images/thumb/sphx_glr_plot_kernel_herding_example_thumb.png
+     :alt: Kernel herding examples
+
+     :ref:`sphx_glr_auto_example_plot_kernel_herding_example.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_example/plot_kernel_herding_example
+.. raw:: html
+
+    <div class="sphx-glr-clear"></div>
+
+
+
+.. only :: html
+
+ .. container:: sphx-glr-footer
+    :class: sphx-glr-footer-gallery
+
+
+  .. container:: sphx-glr-download sphx-glr-download-python
+
+    :download:`Download all examples in Python source code: auto_example_python.zip </auto_example/auto_example_python.zip>`
+
+
+
+  .. container:: sphx-glr-download sphx-glr-download-jupyter
+
+    :download:`Download all examples in Jupyter notebooks: auto_example_jupyter.zip </auto_example/auto_example_jupyter.zip>`

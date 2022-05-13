@@ -1,0 +1,281 @@
+
+<!DOCTYPE html>
+
+<html lang="python">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KernelHerding &#8212; otkerneldesign 0.1.1 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/openturns.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../../_static/css/custom.css" />
+    <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
+    <script src="../../_static/jquery.js"></script>
+    <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/doctools.js"></script>
+    <link rel="shortcut icon" href="../../_static/Icon.ico"/>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" />
+    <link rel="next" title="KernelHerdingTensorized" href="otkerneldesign.KernelHerdingTensorized.html" />
+    <link rel="prev" title="Index of classes" href="../user_manual.html" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../../index.html">Home</a></li>
+    <li><a href="../user_manual.html">Doc</a></li>
+    <li><a href="../../examples/examples.html">Examples</a></li>
+  </ul>
+  <a href="../../index.html">
+    <h1>
+      <img src="../../_static/logo-openturns-wo-bg.png" alt="" width=100px height=100px />
+      otkerneldesign
+    </h1>
+    <h2> Module otkerneldesign </h2>
+  </a>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="otkerneldesign.KernelHerdingTensorized.html" title="KernelHerdingTensorized"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="../user_manual.html" title="Index of classes"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../user_manual.html" accesskey="U">Index of classes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">KernelHerding</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="../user_manual.html"
+                          title="previous chapter">Index of classes</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="otkerneldesign.KernelHerdingTensorized.html"
+                          title="next chapter">KernelHerdingTensorized</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../../_sources/user_manual/_generated/otkerneldesign.KernelHerding.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>$('#searchbox').show(0);</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="section" id="kernelherding">
+<h1>KernelHerding<a class="headerlink" href="#kernelherding" title="Permalink to this headline">¶</a></h1>
+<dl class="py class">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding">
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otkerneldesign.</span></span><span class="sig-name descname"><span class="pre">KernelHerding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate_set_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_design</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding" title="Permalink to this definition">¶</a></dt>
+<dd><p>Incrementally select new design points with kernel herding.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl>
+<dt><strong>kernel</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.CovarianceModel.html#openturns.CovarianceModel" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.CovarianceModel</span></code></a></span></dt><dd><p>Covariance kernel used to define potentials.
+By default a product of Matern kernels with smoothness 5/2.</p>
+</dd>
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution of the set of candidate set.
+If not specified, then <em>candidate_set</em> must be specified instead.
+Even if <em>candidate_set</em> is specified, can be useful if it allows the use of analytical formulas.</p>
+</dd>
+<dt><strong>candidate_set_size</strong><span class="classifier">positive int</span></dt><dd><p>Size of the set of all candidate points.
+Unnecessary if <em>candidate_set</em> is specified. Otherwise, <img class="math" src="../../_images/math/e810c1b7dd9025d7c058cf1629cb2647b2f3b142.svg" alt="2^{12}" style="vertical-align: 0px"/> by default.</p>
+</dd>
+<dt><strong>candidate_set</strong><span class="classifier">2-d list of float</span></dt><dd><p>Large sample that empirically represents a distribution.
+If not specified, then <em>distribution</em> and <em>candidate_set_size</em> must be in order to generate it automatically.</p>
+</dd>
+<dt><strong>initial_design</strong><span class="classifier">2-d list of float</span></dt><dd><p>Sample of points that must be included in the design. Empty by default.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">otkerneldesign</span> <span class="k">as</span> <span class="nn">otkd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distribution</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">ComposedDistribution</span><span class="p">([</span><span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dimension</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">getDimension</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Kernel definition</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ker_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">ot</span><span class="o">.</span><span class="n">MaternModel</span><span class="p">([</span><span class="mf">0.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="mf">2.5</span><span class="p">)]</span> <span class="o">*</span> <span class="n">dimension</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kernel</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">ProductCovarianceModel</span><span class="p">(</span><span class="n">ker_list</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Kernel herding design</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kh</span> <span class="o">=</span> <span class="n">otkd</span><span class="o">.</span><span class="n">KernelHerding</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="n">distribution</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kh_design</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">select_design</span><span class="p">(</span><span class="n">size</span><span class="o">=</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
+<p class="rubric">Methods</p>
+<table class="autosummary longtable docutils align-default">
+<colgroup>
+<col style="width: 10%" />
+<col style="width: 90%" />
+</colgroup>
+<tbody>
+</tbody>
+</table>
+<dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.compute_criterion">
+<span class="sig-name descname"><span class="pre">compute_criterion</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">design_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.compute_criterion" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the criterion on a design <img class="math" src="../../_images/math/c338e556db04d362cc260ec3e709c232a442470e.svg" alt="\mat{X}_n" style="vertical-align: -2px"/>. At any point of the candidate set, 
+this criterion is given by the difference between the target potential 
+and the potential of a discrete measure defined by the given design.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points <img class="math" src="../../_images/math/c338e556db04d362cc260ec3e709c232a442470e.svg" alt="\mat{X}_n" style="vertical-align: -2px"/>
+in the Sample of candidate points</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>current_potential - target_potential</strong><span class="classifier">vector (numpy array) of the values taken by the criterion on all candidate points</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.compute_current_potential">
+<span class="sig-name descname"><span class="pre">compute_current_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">design_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.compute_current_potential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the potential of the discrete measure (a.k.a, kernel mean embedding) defined by the design <img class="math" src="../../_images/math/c338e556db04d362cc260ec3e709c232a442470e.svg" alt="\mat{X}_n" style="vertical-align: -2px"/>.
+Considering the discrete measure <img class="math" src="../../_images/math/42df90e1f06eb6521bf3afba7f96eaa9b8393e73.svg" alt="\zeta_n = \frac{1}{n} \sum_{i=1}^{n} \delta(\vect{x}^{(i)})" style="vertical-align: -6px"/>, its potential is defined as</p>
+<div class="math">
+<p><img src="../../_images/math/97dedbd0a02e9441cba02bb1d833a2fb82b0f1ce.svg" alt="P_{\zeta_n}(\vect{x}) := \frac{1}{n} \sum_{i=1}^{n} k(\vect{x}, \vect{x}^{(i)})."/></p>
+</div><dl class="field-list simple">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points
+in the Sample of candidate points</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>potential</strong><span class="classifier">potential of the discrete measure defined by the design (a.k.a, kernel mean embedding)</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.compute_target_potential">
+<span class="sig-name descname"><span class="pre">compute_target_potential</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.compute_target_potential" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the potential of the target probability measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/>.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl>
+<dt><strong>potential</strong><span class="classifier">potential of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> defined by</span></dt><dd></dd>
+</dl>
+<div class="math">
+<p><img src="../../_images/math/ea5b2346d1bd61bb2637f2f4f33a1c7b602d8930.svg" alt="P_{\mu}(\vect{x}) := \int k(\vect{x}, \vect{x}') d \mu(\vect{x}')."/></p>
+</div></dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.get_candidate_set">
+<span class="sig-name descname"><span class="pre">get_candidate_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.get_candidate_set" title="Permalink to this definition">¶</a></dt>
+<dd><p>Accessor to the candidate set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Returns</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>candidate_set</strong><span class="classifier">openturns.Sample</span></dt><dd><p>A deepcopy of the candidate set.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.select_design">
+<span class="sig-name descname"><span class="pre">select_design</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_design_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.select_design" title="Permalink to this definition">¶</a></dt>
+<dd><p>Select a design with kernel herding.</p>
+<dl class="field-list">
+<dt class="field-odd">Parameters</dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>size</strong><span class="classifier">positive int</span></dt><dd><p>Number of points to be selected</p>
+</dd>
+<dt><strong>initial_design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of <em>already</em> selected points (empty by default)
+in the Sample of candidate points</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns</dt>
+<dd class="field-even"><dl>
+<dt><strong>design</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Sample of all selected points</p>
+</dd>
+<dt><strong>design_indices</strong><span class="classifier">list of positive int or None</span></dt><dd><p>List of the indices of the selected points
+in the Sample of candidate points</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+</dd></dl>
+
+</div>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="otkerneldesign.KernelHerdingTensorized.html" title="KernelHerdingTensorized"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="../user_manual.html" title="Index of classes"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../user_manual.html" >Index of classes</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">KernelHerding</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, OpenTURNS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+    </div>
+  </body>
+</html>

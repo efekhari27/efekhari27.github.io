@@ -1,0 +1,9 @@
+﻿KernelHerding
+============================
+
+.. currentmodule:: otkerneldesign
+
+.. autoclass:: KernelHerding
+
+   
+   
