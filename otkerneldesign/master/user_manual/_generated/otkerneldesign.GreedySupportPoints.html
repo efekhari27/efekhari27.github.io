@@ -105,7 +105,7 @@
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
-<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution of the set of candidate set.
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution the design points must represent.
 If not specified, then <em>candidate_set</em> must be specified instead.
 Even if <em>candidate_set</em> is specified, can be useful if it allows the use of analytical formulas.</p>
 </dd>
@@ -120,6 +120,16 @@ If not specified, then <em>distribution</em> and <em>candidate_set_size</em> mus
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">otkerneldesign</span> <span class="k">as</span> <span class="nn">otkd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distribution</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">ComposedDistribution</span><span class="p">([</span><span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dimension</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">getDimension</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Greedy support points design</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp</span> <span class="o">=</span> <span class="n">otkd</span><span class="o">.</span><span class="n">GreedySupportPoints</span><span class="p">(</span><span class="n">distribution</span><span class="o">=</span><span class="n">distribution</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">sp_design</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">select_design</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
@@ -132,25 +142,14 @@ If not specified, then <em>distribution</em> and <em>candidate_set_size</em> mus
 <dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.GreedySupportPoints.compute_current_potential">
 <span class="sig-name descname"><span class="pre">compute_current_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">design_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.GreedySupportPoints.compute_current_potential" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Compute the potential of the discrete measure (a.k.a, kernel mean embedding) 
-defined by the design <img class="math" src="../../_images/math/01b63f37a92c9b47448b3a42a6ca6a55ca45c2d9.svg" alt="X_n" style="vertical-align: -2px"/>. Considering the discrete measure 
-:math:<a href="#id1"><span class="problematic" id="id2">`</span></a>zeta_n =</p>
-</div></blockquote>
-<dl class="simple">
-<dt>rac{1}{n} sum_{i=1}^{n} delta(x^{(i)})`, </dt><dd><p>its potential is defined for the characteristic energy-distance kernel of Székely and Rizzo</p>
-</dd>
-</dl>
-<p>rac{1}{n} sum_{i=1}^{n} k(
-ect{x}, 
-ect{x}^{(i)})</p>
-<blockquote>
-<div><p>=</p>
-</div></blockquote>
-<p>rac{1}{n} sum_{i=1}^{n} |
-ect{x}-
-ect{x}^{(i)}|`.</p>
-<dl class="field-list simple">
+<dd><p>Compute the potential of the discrete measure (a.k.a, kernel mean embedding) 
+defined by the design <img class="math" src="../../_images/math/93868c612d0f4e38543b65fde12ceec728a3dbbc.svg" alt="\vect{X}_n" style="vertical-align: -2px"/>. Considering the discrete measure
+<img class="math" src="../../_images/math/42df90e1f06eb6521bf3afba7f96eaa9b8393e73.svg" alt="\zeta_n = \frac{1}{n} \sum_{i=1}^{n} \delta(\vect{x}^{(i)})" style="vertical-align: -6px"/>,
+its potential is defined for the characteristic energy-distance kernel of Székely and Rizzo</p>
+<div class="math">
+<p><img src="../../_images/math/e02620d60b1ff070f00c5a9c61a29664d8415ee5.svg" alt="P_{\zeta_n}(x) = \frac{1}{n} \sum_{i=1}^{n} k(\vect{x}, \vect{x}^{(i)})
+                = \frac{1}{n} \sum_{i=1}^{n} \|\vect{x}-\vect{x}^{(i)}\|."/></p>
+</div><dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points
@@ -160,7 +159,8 @@ in the Sample of candidate points</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>potential</strong><span class="classifier">potential of the discrete measure defined by the design (a.k.a, kernel mean embedding)</span></dt><dd></dd>
+<dt><strong>potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Potential of the discrete measure defined by the design (a.k.a, kernel mean embedding)</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -169,9 +169,9 @@ in the Sample of candidate points</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.GreedySupportPoints.compute_distance_matrix">
 <span class="sig-name descname"><span class="pre">compute_distance_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_nb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.GreedySupportPoints.compute_distance_matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the euclidian distance matrix between each couples of candidate points. 
+<dd><p>Compute the matrix of pair-wise Euclidean distances between all candidate points.
 To avoid saturating the memory, this symmetric matrix is computed by 
-blocks and using half-precision floating-point format (e.g., <cite>np.float16</cite>).</p>
+blocks and using half-precision floating-point format (e.g., <cite>numpy.float16</cite>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
@@ -193,19 +193,19 @@ the couples of points in the candidate set.</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.GreedySupportPoints.compute_target_potential">
 <span class="sig-name descname"><span class="pre">compute_target_potential</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.GreedySupportPoints.compute_target_potential" title="Permalink to this definition">¶</a></dt>
-<dd><blockquote>
-<div><p>Compute the potential of the target probability measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/>.</p>
-</div></blockquote>
+<dd><p>Compute the potential of the target probability measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/>.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl>
-<dt><strong>potential</strong><span class="classifier">potential of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> computed over the N-sized</span></dt><dd><p>candidate set and defined for the characteristic energy-distance kernel of Székely and Rizzo by</p>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Potential of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> computed over the N-sized
+candidate set and defined for the characteristic energy-distance
+kernel of Székely and Rizzo by</p>
 </dd>
-<dt>rac{1}{N} sum_{k=1}^N |</dt><dd></dd>
-<dt>ect{x}-</dt><dd></dd>
-<dt>ect{x}'^{(k)}|`.</dt><dd></dd>
 </dl>
-</dd>
+<div class="math">
+<p><img src="../../_images/math/7a56e68e5b8fa1450ec50e8d898fb36ab2872b93.svg" alt="P_{\mu}(x) := \int k(x, x') d \mu(x')
+             = \frac{1}{N} \sum_{k=1}^N \|\vect{x}-\vect{x}'^{(k)}\|."/></p>
+</div></dd>
 </dl>
 </dd></dl>
 

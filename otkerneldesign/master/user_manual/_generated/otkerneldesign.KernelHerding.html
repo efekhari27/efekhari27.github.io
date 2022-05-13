@@ -108,7 +108,7 @@
 <dt><strong>kernel</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.CovarianceModel.html#openturns.CovarianceModel" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.CovarianceModel</span></code></a></span></dt><dd><p>Covariance kernel used to define potentials.
 By default a product of Matern kernels with smoothness 5/2.</p>
 </dd>
-<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution of the set of candidate set.
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution the design points must represent.
 If not specified, then <em>candidate_set</em> must be specified instead.
 Even if <em>candidate_set</em> is specified, can be useful if it allows the use of analytical formulas.</p>
 </dd>
@@ -161,7 +161,8 @@ in the Sample of candidate points</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>current_potential - target_potential</strong><span class="classifier">vector (numpy array) of the values taken by the criterion on all candidate points</span></dt><dd></dd>
+<dt><strong>current_potential - target_potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Vector of the values taken by the criterion on all candidate points</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -184,7 +185,8 @@ in the Sample of candidate points</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>potential</strong><span class="classifier">potential of the discrete measure defined by the design (a.k.a, kernel mean embedding)</span></dt><dd></dd>
+<dt><strong>potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Potential of the discrete measure defined by the design (a.k.a, kernel mean embedding)</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -196,8 +198,9 @@ in the Sample of candidate points</p>
 <dd><p>Compute the potential of the target probability measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/>.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl>
-<dt><strong>potential</strong><span class="classifier">potential of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> defined by</span></dt><dd></dd>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Potential of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> defined by</p>
+</dd>
 </dl>
 <div class="math">
 <p><img src="../../_images/math/ea5b2346d1bd61bb2637f2f4f33a1c7b602d8930.svg" alt="P_{\mu}(\vect{x}) := \int k(\vect{x}, \vect{x}') d \mu(\vect{x}')."/></p>

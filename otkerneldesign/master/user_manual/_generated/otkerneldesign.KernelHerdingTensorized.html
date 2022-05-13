@@ -116,7 +116,7 @@ which is much faster.</p>
 Must be a product of one-dimensional kernels.
 By default a product of Matern kernels with smoothness 5/2.</p>
 </dd>
-<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution of the set of candidate points.
+<dt><strong>distribution</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Distribution.html#openturns.Distribution" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Distribution</span></code></a></span></dt><dd><p>Distribution the design points must represent.
 Must have an independent copula.
 If not specified, then <em>candidate_set</em> must be specified instead.
 Even if <em>candidate_set</em> is specified, can be useful if it allows the use of tensorized formulas.</p>
@@ -132,6 +132,19 @@ If not specified, then <em>distribution</em> and <em>candidate_set_size</em> mus
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<div class="doctest highlight-default notranslate"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">otkerneldesign</span> <span class="k">as</span> <span class="nn">otkd</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">distribution</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">ComposedDistribution</span><span class="p">([</span><span class="n">ot</span><span class="o">.</span><span class="n">Normal</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">dimension</span> <span class="o">=</span> <span class="n">distribution</span><span class="o">.</span><span class="n">getDimension</span><span class="p">()</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Kernel definition</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ker_list</span> <span class="o">=</span> <span class="p">[</span><span class="n">ot</span><span class="o">.</span><span class="n">MaternModel</span><span class="p">([</span><span class="mf">0.1</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="mf">2.5</span><span class="p">)]</span> <span class="o">*</span> <span class="n">dimension</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kernel</span> <span class="o">=</span> <span class="n">ot</span><span class="o">.</span><span class="n">ProductCovarianceModel</span><span class="p">(</span><span class="n">ker_list</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="c1"># Tensorized kernel herding design</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kht</span> <span class="o">=</span> <span class="n">otkd</span><span class="o">.</span><span class="n">KernelHerdingTensorized</span><span class="p">(</span><span class="n">kernel</span><span class="o">=</span><span class="n">kernel</span><span class="p">,</span> <span class="n">distribution</span><span class="o">=</span><span class="n">distribution</span><span class="p">)</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">kht_design</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">kht</span><span class="o">.</span><span class="n">select_design</span><span class="p">(</span><span class="mi">20</span><span class="p">)</span>
+</pre></div>
+</div>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
@@ -157,7 +170,8 @@ in the Sample of candidate points</p>
 </dd>
 <dt class="field-even">Returns</dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>current_potential - target_potential</strong><span class="classifier">vector (numpy array) of the values taken by the criterion on all candidate points</span></dt><dd></dd>
+<dt><strong>current_potential - target_potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Vector of the values taken by the criterion on all candidate points</p>
+</dd>
 </dl>
 </dd>
 </dl>
@@ -209,8 +223,9 @@ and the kernel <img class="math" src="../../_images/math/f93917599c34a6eb6e6cda7
 of univariate potentials, individually estimated by regular grids.</p>
 <dl class="field-list">
 <dt class="field-odd">Returns</dt>
-<dd class="field-odd"><dl>
-<dt><strong>potential</strong><span class="classifier">potential of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> computed as</span></dt><dd></dd>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Potential of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> computed as</p>
+</dd>
 </dl>
 <div class="math">
 <p><img src="../../_images/math/c803db1a7e0419afd0ec61a5041a85128019840a.svg" alt="P_{k,\mu}(\vect{x}) = \prod_{i=1}^d P_{k_{[i]},\mu_{[i]}}(x_i)."/></p>

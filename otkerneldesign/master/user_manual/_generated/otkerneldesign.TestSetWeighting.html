@@ -101,8 +101,8 @@
 <dl class="py class">
 <dt class="sig sig-object py" id="otkerneldesign.TestSetWeighting">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otkerneldesign.</span></span><span class="sig-name descname"><span class="pre">TestSetWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.TestSetWeighting" title="Permalink to this definition">¶</a></dt>
-<dd><p>Optimally-weighting a test-set for estimating a machine learning performance 
-metric (e.g, Integrated Squared Error, predictivity coefficient).</p>
+<dd><p>Weighting of a test-set for optimal machine learning performance
+metric (e.g, Integrated Squared Error, predictivity coefficient) estimation.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl>
@@ -120,6 +120,8 @@ By default a product of Matern kernels with smoothness 5/2.</p>
 </dl>
 </dd>
 </dl>
+<p class="rubric">Examples</p>
+<p>TODO</p>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
 <colgroup>
@@ -137,7 +139,7 @@ By default a product of Matern kernels with smoothness 5/2.</p>
 <dt class="field-odd">Parameters</dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>residuals: list</strong></dt><dd><p>List of residuals in the case of a non-interpolating machine learning model. 
-By default set to <cite>None</cite> for interpolating model (e.g., Gaussian process regression).</p>
+By default set to <cite>None</cite> for an interpolating model (e.g., Gaussian process regression).</p>
 </dd>
 </dl>
 </dd>
