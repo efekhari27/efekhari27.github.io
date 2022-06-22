@@ -4,7 +4,8 @@
 <html lang="python">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>KernelHerding &#8212; otkerneldesign 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/openturns.css" />
@@ -16,6 +17,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/Icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -87,7 +89,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -96,14 +98,14 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="kernelherding">
-<h1>KernelHerding<a class="headerlink" href="#kernelherding" title="Permalink to this headline">¶</a></h1>
+  <section id="kernelherding">
+<h1>KernelHerding<a class="headerlink" href="#kernelherding" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="otkerneldesign.KernelHerding">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otkerneldesign.</span></span><span class="sig-name descname"><span class="pre">KernelHerding</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate_set_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_design</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding" title="Permalink to this definition">¶</a></dt>
 <dd><p>Incrementally select new design points with kernel herding.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>kernel</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.CovarianceModel.html#openturns.CovarianceModel" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.CovarianceModel</span></code></a></span></dt><dd><p>Covariance kernel used to define potentials.
 By default a product of Matern kernels with smoothness 5/2.</p>
@@ -138,10 +140,6 @@ If not specified, then <em>distribution</em> and <em>candidate_set_size</em> mus
 </div>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 </tbody>
 </table>
@@ -152,16 +150,40 @@ If not specified, then <em>distribution</em> and <em>candidate_set_size</em> mus
 this criterion is given by the difference between the target potential 
 and the potential of a discrete measure defined by the given design.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points <img class="math" src="../../_images/math/c338e556db04d362cc260ec3e709c232a442470e.svg" alt="\mat{X}_n" style="vertical-align: -2px"/>
 in the Sample of candidate points</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>current_potential - target_potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Vector of the values taken by the criterion on all candidate points</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.compute_current_energy">
+<span class="sig-name descname"><span class="pre">compute_current_energy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">design_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.compute_current_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the energy of the discrete measure defined by the design <img class="math" src="../../_images/math/c338e556db04d362cc260ec3e709c232a442470e.svg" alt="\mat{X}_n" style="vertical-align: -2px"/>.
+Considering the discrete measure <img class="math" src="../../_images/math/42df90e1f06eb6521bf3afba7f96eaa9b8393e73.svg" alt="\zeta_n = \frac{1}{n} \sum_{i=1}^{n} \delta(\vect{x}^{(i)})" style="vertical-align: -6px"/>, its energy is defined as</p>
+<div class="math">
+<p><img src="../../_images/math/fb5e604b036891865d5f82bb896255628e6e4544.svg" alt="E_{\zeta_n} := \frac{1}{n^2} \sum_{i=1}^{n} \sum_{j=1}^{n} k(\vect{x}^{(i)}, \vect{x}^{(j)})."/></p>
+</div><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points
+in the Sample of candidate points</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>potential</strong><span class="classifier">float</span></dt><dd><p>Energy of the discrete measure defined by the design</p>
 </dd>
 </dl>
 </dd>
@@ -176,14 +198,14 @@ Considering the discrete measure <img class="math" src="../../_images/math/42df9
 <div class="math">
 <p><img src="../../_images/math/97dedbd0a02e9441cba02bb1d833a2fb82b0f1ce.svg" alt="P_{\zeta_n}(\vect{x}) := \frac{1}{n} \sum_{i=1}^{n} k(\vect{x}, \vect{x}^{(i)})."/></p>
 </div><dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points
 in the Sample of candidate points</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Potential of the discrete measure defined by the design (a.k.a, kernel mean embedding)</p>
 </dd>
@@ -193,11 +215,27 @@ in the Sample of candidate points</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.compute_target_energy">
+<span class="sig-name descname"><span class="pre">compute_target_energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.compute_target_energy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute the energy of the target probability measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/>.</p>
+<dl class="field-list">
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>potential</strong><span class="classifier">float</span></dt><dd><p>Energy of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> defined by</p>
+</dd>
+</dl>
+<div class="math">
+<p><img src="../../_images/math/2f073ce73c27c5d4fe40deded8306738438e36d7.svg" alt="E_{\mu} := \int \int k(\vect{x}, \vect{x}') d \mu(\vect{x}) d \mu(\vect{x}')."/></p>
+</div></dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.KernelHerding.compute_target_potential">
 <span class="sig-name descname"><span class="pre">compute_target_potential</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.compute_target_potential" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the potential of the target probability measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/>.</p>
 <dl class="field-list">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>potential</strong><span class="classifier">numpy.array</span></dt><dd><p>Potential of the measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> defined by</p>
 </dd>
@@ -209,11 +247,33 @@ in the Sample of candidate points</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.draw_energy_convergence">
+<span class="sig-name descname"><span class="pre">draw_energy_convergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">design_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.draw_energy_convergence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws the convergence of the energy for a set of points selected among the candidate set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points
+in the Sample of candidate points</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>fig</strong><span class="classifier">matplotlib.Figure</span></dt><dd><p>Energy convergence of the design of experiments</p>
+</dd>
+<dt><strong>plot_data</strong><span class="classifier">data used to plot the figure</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.KernelHerding.get_candidate_set">
 <span class="sig-name descname"><span class="pre">get_candidate_set</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.get_candidate_set" title="Permalink to this definition">¶</a></dt>
 <dd><p>Accessor to the candidate set.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Returns</dt>
+<dt class="field-odd">Returns<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>candidate_set</strong><span class="classifier">openturns.Sample</span></dt><dd><p>A deepcopy of the candidate set.</p>
 </dd>
@@ -227,7 +287,7 @@ in the Sample of candidate points</p>
 <span class="sig-name descname"><span class="pre">select_design</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_design_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.select_design" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select a design with kernel herding.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>size</strong><span class="classifier">positive int</span></dt><dd><p>Number of points to be selected</p>
 </dd>
@@ -236,7 +296,7 @@ in the Sample of candidate points</p>
 </dd>
 </dl>
 </dd>
-<dt class="field-even">Returns</dt>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl>
 <dt><strong>design</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Sample of all selected points</p>
 </dd>
@@ -250,7 +310,7 @@ in the Sample of candidate points</p>
 
 </dd></dl>
 
-</div>
+</section>
 
 
             <div class="clearer"></div>
@@ -278,7 +338,7 @@ in the Sample of candidate points</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>

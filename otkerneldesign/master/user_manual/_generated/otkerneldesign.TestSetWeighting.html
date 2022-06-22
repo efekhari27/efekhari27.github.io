@@ -4,7 +4,8 @@
 <html lang="python">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>TestSetWeighting &#8212; otkerneldesign 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/openturns.css" />
@@ -16,6 +17,7 @@
     <script data-url_root="../../" id="documentation_options" src="../../_static/documentation_options.js"></script>
     <script src="../../_static/jquery.js"></script>
     <script src="../../_static/underscore.js"></script>
+    <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../../_static/Icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
@@ -87,7 +89,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -96,15 +98,15 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <div class="section" id="testsetweighting">
-<h1>TestSetWeighting<a class="headerlink" href="#testsetweighting" title="Permalink to this headline">¶</a></h1>
+  <section id="testsetweighting">
+<h1>TestSetWeighting<a class="headerlink" href="#testsetweighting" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="otkerneldesign.TestSetWeighting">
 <em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otkerneldesign.</span></span><span class="sig-name descname"><span class="pre">TestSetWeighting</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">train</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">test</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution_sample</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.TestSetWeighting" title="Permalink to this definition">¶</a></dt>
 <dd><p>Weighting of a test-set for optimal machine learning performance
 metric (e.g, Integrated Squared Error, predictivity coefficient) estimation.</p>
 <dl class="field-list">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl>
 <dt><strong>train</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Training set used for fitting a machine learning model.</p>
 </dd>
@@ -124,10 +126,6 @@ By default a product of Matern kernels with smoothness 5/2.</p>
 <p>TODO</p>
 <p class="rubric">Methods</p>
 <table class="autosummary longtable docutils align-default">
-<colgroup>
-<col style="width: 10%" />
-<col style="width: 90%" />
-</colgroup>
 <tbody>
 </tbody>
 </table>
@@ -136,7 +134,7 @@ By default a product of Matern kernels with smoothness 5/2.</p>
 <span class="sig-name descname"><span class="pre">compute_weights</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">residuals</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.TestSetWeighting.compute_weights" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute optimal-weights for better performance estimation of a machine learning model.</p>
 <dl class="field-list simple">
-<dt class="field-odd">Parameters</dt>
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
 <dt><strong>residuals: list</strong></dt><dd><p>List of residuals in the case of a non-interpolating machine learning model. 
 By default set to <cite>None</cite> for an interpolating model (e.g., Gaussian process regression).</p>
@@ -148,7 +146,7 @@ By default set to <cite>None</cite> for an interpolating model (e.g., Gaussian p
 
 </dd></dl>
 
-</div>
+</section>
 
 
             <div class="clearer"></div>
@@ -176,7 +174,7 @@ By default set to <cite>None</cite> for an interpolating model (e.g., Gaussian p
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>

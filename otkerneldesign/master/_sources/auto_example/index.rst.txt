@@ -9,6 +9,27 @@
 
 .. raw:: html
 
+    <div class="sphx-glr-thumbcontainer" tooltip="This page provides an example of energy  computation for a given sample.">
+
+.. only:: html
+
+ .. figure:: /auto_example/images/thumb/sphx_glr_plot_energy_example_thumb.png
+     :alt: Energy computation example
+
+     :ref:`sphx_glr_auto_example_plot_energy_example.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_example/plot_energy_example
+
+.. raw:: html
+
     <div class="sphx-glr-thumbcontainer" tooltip="The aim of this page is to provide simple examples where kernel herding is applied to multivari...">
 
 .. only:: html
@@ -27,6 +48,27 @@
    :hidden:
 
    /auto_example/plot_kernel_herding_example
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The aim of this page is to provide a simple example to  compute optimal-weights for quadrature ...">
+
+.. only:: html
+
+ .. figure:: /auto_example/images/thumb/sphx_glr_plot_quadrature_weights_example_thumb.png
+     :alt: Bayesian quadrature weighting examples
+
+     :ref:`sphx_glr_auto_example_plot_quadrature_weights_example.py`
+
+.. raw:: html
+
+    </div>
+
+
+.. toctree::
+   :hidden:
+
+   /auto_example/plot_quadrature_weights_example
 .. raw:: html
 
     <div class="sphx-glr-clear"></div>

@@ -4,7 +4,8 @@
 <html lang="python">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+
     <title>Kernel herding examples &#8212; otkerneldesign 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/openturns.css" />
@@ -16,6 +17,7 @@
     <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
     <script src="../_static/jquery.js"></script>
     <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
     <link rel="shortcut icon" href="../_static/Icon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
@@ -89,7 +91,7 @@
     </form>
     </div>
 </div>
-<script>$('#searchbox').show(0);</script>
+<script>document.getElementById('searchbox').style.display = "block"</script>
         </div>
       </div>
 
@@ -103,8 +105,8 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-example-plot-kernel-herding-example-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<div class="sphx-glr-example-title section" id="kernel-herding-examples">
-<span id="sphx-glr-auto-example-plot-kernel-herding-example-py"></span><h1>Kernel herding examples<a class="headerlink" href="#kernel-herding-examples" title="Permalink to this headline">¶</a></h1>
+<section class="sphx-glr-example-title" id="kernel-herding-examples">
+<span id="sphx-glr-auto-example-plot-kernel-herding-example-py"></span><h1>Kernel herding examples<a class="headerlink" href="#kernel-herding-examples" title="Permalink to this heading">¶</a></h1>
 <p>The aim of this page is to provide simple examples where kernel herding is
 applied to multivariate random inputs with or without a dependency structure.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -144,8 +146,8 @@ applied to multivariate random inputs with or without a dependency structure.</p
         <span class="k">return</span> <span class="n">fig</span>
 </pre></div>
 </div>
-<div class="section" id="independent-bivariate-random-mixture">
-<h2>Independent bivariate random mixture<a class="headerlink" href="#independent-bivariate-random-mixture" title="Permalink to this headline">¶</a></h2>
+<section id="independent-bivariate-random-mixture">
+<h2>Independent bivariate random mixture<a class="headerlink" href="#independent-bivariate-random-mixture" title="Permalink to this heading">¶</a></h2>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">modes</span> <span class="o">=</span> <span class="p">[</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Normal.html#openturns.Normal" title="openturns.Normal" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">Normal</span></a><span class="p">(</span><span class="mf">0.3</span><span class="p">,</span> <span class="mf">0.12</span><span class="p">),</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Normal.html#openturns.Normal" title="openturns.Normal" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">Normal</span></a><span class="p">(</span><span class="mf">0.7</span><span class="p">,</span> <span class="mf">0.1</span><span class="p">)]</span>
 <span class="n">weight</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.4</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">]</span>
 <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Mixture.html#openturns.Mixture" title="openturns.Mixture" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">mixture</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Mixture.html#openturns.Mixture" title="openturns.Mixture" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">Mixture</span></a><span class="p">(</span><span class="n">modes</span><span class="p">,</span> <span class="n">weight</span><span class="p">)</span>
@@ -201,9 +203,9 @@ in a computationally more efficient way.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_kernel_herding_example_002.png" srcset="../_images/sphx_glr_plot_kernel_herding_example_002.png" alt="Sampling a bivariate random mixture" class = "sphx-glr-single-img"/></div>
-<div class="section" id="dependent-bivariate-random-mixture">
-<h2>Dependent bivariate random mixture<a class="headerlink" href="#dependent-bivariate-random-mixture" title="Permalink to this headline">¶</a></h2>
+<img src="../_images/sphx_glr_plot_kernel_herding_example_002.png" srcset="../_images/sphx_glr_plot_kernel_herding_example_002.png" alt="Sampling a bivariate random mixture" class = "sphx-glr-single-img"/></section>
+<section id="dependent-bivariate-random-mixture">
+<h2>Dependent bivariate random mixture<a class="headerlink" href="#dependent-bivariate-random-mixture" title="Permalink to this heading">¶</a></h2>
 <p>Using the same example, we can add a Copula as a dependency structure.
 Note that the <a class="reference internal" href="../user_manual/_generated/otkerneldesign.KernelHerdingTensorized.html#otkerneldesign.KernelHerdingTensorized" title="otkerneldesign.KernelHerdingTensorized"><code class="xref py py-class docutils literal notranslate"><span class="pre">KernelHerdingTensorized</span></code></a>
 class cannot be used in this case.</p>
@@ -231,7 +233,7 @@ class cannot be used in this case.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_kernel_herding_example_004.png" srcset="../_images/sphx_glr_plot_kernel_herding_example_004.png" alt="Sampling a bivariate random mixture" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.229 seconds)</p>
+<img src="../_images/sphx_glr_plot_kernel_herding_example_004.png" srcset="../_images/sphx_glr_plot_kernel_herding_example_004.png" alt="Sampling a bivariate random mixture" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  4.918 seconds)</p>
 <div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-example-plot-kernel-herding-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/6c2c78cb9f915fa8e1da0b9f35764167/plot_kernel_herding_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_kernel_herding_example.py</span></code></a></p>
@@ -241,8 +243,8 @@ class cannot be used in this case.</p>
 </div>
 </div>
 <p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
-</div>
-</div>
+</section>
+</section>
 
 
             <div class="clearer"></div>
@@ -267,7 +269,7 @@ class cannot be used in this case.</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 4.5.0.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
     </div>
   </body>
 </html>
