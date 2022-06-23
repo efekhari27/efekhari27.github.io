@@ -178,7 +178,7 @@ Draw the energy convergence of KernelHerding and TensorizedKernelHerding designs
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  54.123 seconds)
+   **Total running time of the script:** ( 0 minutes  43.728 seconds)
 
 
 .. _sphx_glr_download_auto_example_plot_energy_example.py:
