@@ -4,7 +4,7 @@
 <html lang="python">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>GreedySupportPoints &#8212; otkerneldesign 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -163,7 +163,7 @@ in the Sample of candidate points</p>
 <dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.GreedySupportPoints.compute_current_potential">
 <span class="sig-name descname"><span class="pre">compute_current_potential</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">design_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.GreedySupportPoints.compute_current_potential" title="Permalink to this definition">¶</a></dt>
-<dd><p>Compute the potential of the discrete measure (a.k.a, kernel mean embedding) 
+<dd><p>Compute the potential of the discrete measure (a.k.a, kernel mean embedding)
 defined by the design <img class="math" src="../../_images/math/93868c612d0f4e38543b65fde12ceec728a3dbbc.svg" alt="\vect{X}_n" style="vertical-align: -2px"/>. Considering the discrete measure
 <img class="math" src="../../_images/math/42df90e1f06eb6521bf3afba7f96eaa9b8393e73.svg" alt="\zeta_n = \frac{1}{n} \sum_{i=1}^{n} \delta(\vect{x}^{(i)})" style="vertical-align: -6px"/>,
 its potential is defined for the characteristic energy-distance kernel of Székely and Rizzo</p>
@@ -191,19 +191,19 @@ in the Sample of candidate points</p>
 <dt class="sig sig-object py" id="otkerneldesign.GreedySupportPoints.compute_distance_matrix">
 <span class="sig-name descname"><span class="pre">compute_distance_matrix</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">batch_nb</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">8</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.GreedySupportPoints.compute_distance_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the matrix of pair-wise Euclidean distances between all candidate points.
-To avoid saturating the memory, this symmetric matrix is computed by 
+To avoid saturating the memory, this symmetric matrix is computed by
 blocks and using half-precision floating-point format (e.g., <cite>numpy.float16</cite>).</p>
 <dl class="field-list simple">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
 <dd class="field-odd"><dl class="simple">
-<dt><strong>batch_nb</strong><span class="classifier">positive int</span></dt><dd><p>Number of blocks used to compute the symmetric 
+<dt><strong>batch_nb</strong><span class="classifier">positive int</span></dt><dd><p>Number of blocks used to compute the symmetric
 matrix of distances. By default set to 8.</p>
 </dd>
 </dl>
 </dd>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
-<dt><strong>distances</strong><span class="classifier">2-d numpy array</span></dt><dd><p>Squared and symmetric matrix of distances between all 
+<dt><strong>distances</strong><span class="classifier">2-d numpy array</span></dt><dd><p>Squared and symmetric matrix of distances between all
 the couples of points in the candidate set.</p>
 </dd>
 </dl>
@@ -318,7 +318,7 @@ in the Sample of candidate points</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
     </div>
   </body>
 </html>

@@ -4,7 +4,7 @@
 <html lang="python">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>Energy computation example &#8212; otkerneldesign 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
@@ -144,14 +144,14 @@ computation for a given sample.</p>
     <span class="n">candidate_set_size</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">14</span><span class="p">,</span>
     <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a><span class="o">=</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a>
 <span class="p">)</span>
-<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kh_design</span></a><span class="p">,</span> <span class="n">kh_indexes</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">select_design</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kh_design</span></a> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">select_design</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
 <span class="c1"># Tensorized kernel herding design</span>
 <span class="n">kht</span> <span class="o">=</span> <span class="n">otkd</span><span class="o">.</span><span class="n">KernelHerdingTensorized</span><span class="p">(</span>
     <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ProductCovarianceModel.html#openturns.ProductCovarianceModel" title="openturns.ProductCovarianceModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kernel</span></a><span class="o">=</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ProductCovarianceModel.html#openturns.ProductCovarianceModel" title="openturns.ProductCovarianceModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kernel</span></a><span class="p">,</span>
     <span class="n">candidate_set_size</span><span class="o">=</span><span class="mi">2</span> <span class="o">**</span> <span class="mi">14</span><span class="p">,</span>
     <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a><span class="o">=</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a>
 <span class="p">)</span>
-<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kht_design</span></a><span class="p">,</span> <span class="n">kht_indexes</span> <span class="o">=</span> <span class="n">kht</span><span class="o">.</span><span class="n">select_design</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kht_design</span></a> <span class="o">=</span> <span class="n">kht</span><span class="o">.</span><span class="n">select_design</span><span class="p">(</span><span class="n">size</span><span class="p">)</span>
 </pre></div>
 </div>
 </section>
@@ -173,15 +173,14 @@ of univariate potentials, easing its computation in high dimension.</p>
 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Target energy relative error: </span><span class="si">{:.3%}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">target_energy_rerror</span><span class="p">))</span>
 </pre></div>
 </div>
-<p class="sphx-glr-script-out">Out:</p>
 <div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Target energy absolute error: 7.503e-05
 Target energy relative error: 0.169%
 </pre></div>
 </div>
 <p>Draw the energy convergence of KernelHerding and TensorizedKernelHerding designs.
  Notice how they both converge towards their respective target energies.</p>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="n">plot_data1</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">draw_energy_convergence</span><span class="p">(</span><span class="n">kh_indexes</span><span class="p">)</span>
-<span class="n">fig2</span><span class="p">,</span> <span class="n">plot_data2</span> <span class="o">=</span> <span class="n">kht</span><span class="o">.</span><span class="n">draw_energy_convergence</span><span class="p">(</span><span class="n">kht_indexes</span><span class="p">)</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig1</span><span class="p">,</span> <span class="n">plot_data1</span> <span class="o">=</span> <span class="n">kh</span><span class="o">.</span><span class="n">draw_energy_convergence</span><span class="p">(</span><span class="n">kh</span><span class="o">.</span><span class="n">get_indices</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kh_design</span></a><span class="p">))</span>
+<span class="n">fig2</span><span class="p">,</span> <span class="n">plot_data2</span> <span class="o">=</span> <span class="n">kht</span><span class="o">.</span><span class="n">draw_energy_convergence</span><span class="p">(</span><span class="n">kht</span><span class="o">.</span><span class="n">get_indices</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kht_design</span></a><span class="p">))</span>
 
 <span class="n">fig3</span><span class="p">,</span> <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Plot data from fig1 and fig2</span>
@@ -196,8 +195,8 @@ Target energy relative error: 0.169%
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_energy_example_001.png" srcset="../_images/sphx_glr_plot_energy_example_001.png" alt="Energy convergence" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  43.728 seconds)</p>
-<div class="sphx-glr-footer class sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-example-plot-energy-example-py">
+<img src="../_images/sphx_glr_plot_energy_example_001.png" srcset="../_images/sphx_glr_plot_energy_example_001.png" alt="Energy convergence" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  42.815 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-example-plot-energy-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/8c76efd3b5e265ee01cd89e5d318e45d/plot_energy_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_energy_example.py</span></code></a></p>
 </div>
@@ -205,7 +204,6 @@ Target energy relative error: 0.169%
 <p><a class="reference download internal" download="" href="../_downloads/ea0439f737048aa00e5e94ddfdfeb69e/plot_energy_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_energy_example.ipynb</span></code></a></p>
 </div>
 </div>
-<p class="sphx-glr-signature"><a class="reference external" href="https://sphinx-gallery.github.io">Gallery generated by Sphinx-Gallery</a></p>
 </section>
 </section>
 
@@ -235,7 +233,7 @@ Target energy relative error: 0.169%
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
     </div>
   </body>
 </html>

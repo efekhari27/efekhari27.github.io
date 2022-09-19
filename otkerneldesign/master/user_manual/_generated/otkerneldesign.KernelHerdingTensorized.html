@@ -4,7 +4,7 @@
 <html lang="python">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>KernelHerdingTensorized &#8212; otkerneldesign 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -126,7 +126,7 @@ Even if <em>candidate_set</em> is specified, can be useful if it allows the use 
 <dt><strong>candidate_set_size</strong><span class="classifier">positive int</span></dt><dd><p>Size of the set of all candidate points.
 Unnecessary if <em>candidate_set</em> is specified. Otherwise, <img class="math" src="../../_images/math/e810c1b7dd9025d7c058cf1629cb2647b2f3b142.svg" alt="2^{12}" style="vertical-align: 0px"/> by default.</p>
 </dd>
-<dt><strong>candidate_set</strong><span class="classifier">2-d list of float</span></dt><dd><p>Large sample that represents a distribution.
+<dt><strong>candidate_set</strong><span class="classifier">2-d list of float</span></dt><dd><p>Large sample that empirically represents a distribution.
 If not specified, then <em>distribution</em> and <em>candidate_set_size</em> must be in order to generate it automatically.</p>
 </dd>
 <dt><strong>initial_design</strong><span class="classifier">2-d list of float</span></dt><dd><p>Sample of points that must be included in the design. Empty by default.</p>
@@ -308,8 +308,28 @@ in the Sample of candidate points</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerdingTensorized.get_indices">
+<span class="sig-name descname"><span class="pre">get_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerdingTensorized.get_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>When provided a subsample of the candidate set, returns the indices of its points in the candidate set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample</strong><span class="classifier">2-d list of float</span></dt><dd><p>A subsample of the candidate set.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>indices</strong><span class="classifier">list of int</span></dt><dd><p>Indices of the points of the sample within the candidate set.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.KernelHerdingTensorized.select_design">
-<span class="sig-name descname"><span class="pre">select_design</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_design_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerdingTensorized.select_design" title="Permalink to this definition">¶</a></dt>
+<span class="sig-name descname"><span class="pre">select_design</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerdingTensorized.select_design" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select a design with tensorized kernel herding.</p>
 <dl class="field-list">
 <dt class="field-odd">Parameters<span class="colon">:</span></dt>
@@ -363,7 +383,7 @@ in the Sample of candidate points</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
     </div>
   </body>
 </html>

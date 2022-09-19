@@ -4,7 +4,7 @@
 <html lang="python">
   <head>
     <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.18.1: http://docutils.sourceforge.net/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
     <title>KernelHerding &#8212; otkerneldesign 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
@@ -283,6 +283,26 @@ in the Sample of candidate points</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerding.get_indices">
+<span class="sig-name descname"><span class="pre">get_indices</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">sample</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.get_indices" title="Permalink to this definition">¶</a></dt>
+<dd><p>When provided a subsample of the candidate set, returns the indices of its points in the candidate set.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>sample</strong><span class="classifier">2-d list of float</span></dt><dd><p>A subsample of the candidate set.</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>indices</strong><span class="classifier">list of int</span></dt><dd><p>Indices of the points of the sample within the candidate set.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.KernelHerding.select_design">
 <span class="sig-name descname"><span class="pre">select_design</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">size</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_design_indices</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">[]</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerding.select_design" title="Permalink to this definition">¶</a></dt>
 <dd><p>Select a design with kernel herding.</p>
@@ -338,7 +358,7 @@ in the Sample of candidate points</p>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.0.2.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
     </div>
   </body>
 </html>
