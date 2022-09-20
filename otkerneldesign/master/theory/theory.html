@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Principle of kernel herding methods &#8212; otkerneldesign 0.1.1 documentation</title>
+    <title>Principle of kernel-based sampling methods &#8212; otkerneldesign 0.1.1 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/openturns.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
@@ -57,11 +57,21 @@
           <a href="../index.html" title="Documentation"
              accesskey="P">previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Principle of kernel herding methods</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Principle of kernel-based sampling methods</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Principle of kernel-based sampling methods</a><ul>
+<li><a class="reference internal" href="#references">References</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
   <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="../index.html"
@@ -97,9 +107,147 @@
         <div class="bodywrapper">
           <div class="body" role="main">
             
-  <section id="principle-of-kernel-herding-methods">
-<h1>Principle of kernel herding methods<a class="headerlink" href="#principle-of-kernel-herding-methods" title="Permalink to this heading">¶</a></h1>
-<p>TODO</p>
+  <section id="principle-of-kernel-based-sampling-methods">
+<h1>Principle of kernel-based sampling methods<a class="headerlink" href="#principle-of-kernel-based-sampling-methods" title="Permalink to this heading">¶</a></h1>
+<p>Let us denote by <aside class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">\\vect{X}_n = \\left\\{\\vect{x}^{(1)},\\ldots, \\vect{x}^{(n)}\\right\\} \\in \\cD_\\vect{X} \\subset \\Rset^p</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2020-02-02&gt; patch level 2
+L3 programming layer &lt;2020-02-14&gt;
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/home/runner/work/otkerneldesign/otkerneldesign/doc/math_notations.sty
+
+LaTeX Warning: You have requested package `/home/runner/work/otkerneldesign/otk
+erneldesign/doc/math_notations',
+               but the package provides `math_notations'.
+
+) (/usr/share/texmf/tex/latex/preview/preview.sty
+(/usr/share/texmf/tex/latex/preview/prtightpage.def))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-dvips.def)
+No file math.aux.
+Preview: Fontsize 12pt
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+! Missing { inserted.
+&lt;to be read again&gt; 
+                   \let 
+l.16 ...ts, \\vect{x}^{(n)}\\right\\} \\in \\cD_\\
+                                                  vect{X} \\subset \\Rset^p$
+! Missing } inserted.
+&lt;inserted text&gt; 
+                }
+l.16 ...\\} \\in \\cD_\\vect{X} \\subset \\Rset^p$
+                                                  
+Preview: Tightpage -32891 -32891 32891 32891
+[1] (./math.aux) )
+(see the transcript file for additional information)
+Output written on math.dvi (1 page, 1924 bytes).
+Transcript written on math.log.
+</p>
+</aside>
+
+the <img class="math" src="../_images/math/f084bb373e531b0883dc3788190588413b9cabf5.svg" alt="n" style="vertical-align: 0px"/>-sample of input realizations, also called input <a href="#id1"><span class="problematic" id="id2">``</span></a>design of experiments'' (DoE) or simply design.
+Considering a costly function <aside class="system-message">
+<p class="system-message-title">System Message: WARNING/2 (<span class="docutils literal">g:\\cD_\\vect{X} \\rightarrow \\Rset</span>)</p>
+<p>latex exited with error
+[stdout]
+This is pdfTeX, Version 3.14159265-2.6-1.40.20 (TeX Live 2019/Debian) (preloaded format=latex)
+ restricted \write18 enabled.
+entering extended mode
+(./math.tex
+LaTeX2e &lt;2020-02-02&gt; patch level 2
+L3 programming layer &lt;2020-02-14&gt;
+(/usr/share/texlive/texmf-dist/tex/latex/base/article.cls
+Document Class: article 2019/12/20 v1.4l Standard LaTeX document class
+(/usr/share/texlive/texmf-dist/tex/latex/base/size12.clo))
+(/usr/share/texlive/texmf-dist/tex/latex/base/inputenc.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsmath.sty
+For additional information on amsmath, use the `?' option.
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amstext.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsgen.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsbsy.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsmath/amsopn.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/amscls/amsthm.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amssymb.sty
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/amsfonts.sty))
+(/usr/share/texlive/texmf-dist/tex/latex/anyfontsize/anyfontsize.sty)
+(/usr/share/texlive/texmf-dist/tex/latex/tools/bm.sty)
+(/home/runner/work/otkerneldesign/otkerneldesign/doc/math_notations.sty
+
+LaTeX Warning: You have requested package `/home/runner/work/otkerneldesign/otk
+erneldesign/doc/math_notations',
+               but the package provides `math_notations'.
+
+) (/usr/share/texmf/tex/latex/preview/preview.sty
+(/usr/share/texmf/tex/latex/preview/prtightpage.def))
+(/usr/share/texlive/texmf-dist/tex/latex/l3backend/l3backend-dvips.def)
+(./math.aux)
+Preview: Fontsize 12pt
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsa.fd)
+(/usr/share/texlive/texmf-dist/tex/latex/amsfonts/umsb.fd)
+! Missing { inserted.
+&lt;to be read again&gt; 
+                   \let 
+l.16 \fontsize{12}{14}\selectfont $g:\\cD_\\
+                                            vect{X} \\rightarrow \\Rset$
+! Missing } inserted.
+&lt;inserted text&gt; 
+                }
+l.16 ...ont $g:\\cD_\\vect{X} \\rightarrow \\Rset$
+                                                  
+Preview: Tightpage -32891 -32891 32891 32891
+[1] (./math.aux) )
+(see the transcript file for additional information)
+Output written on math.dvi (1 page, 1740 bytes).
+Transcript written on math.log.
+</p>
+</aside>
+, a first goal of the following DoE methods is
+to explore the input space in a space-filling way (e.g., to build a generic metamodel of <img class="math" src="../_images/math/bce642d6b4d9ec929df5cf046fabf620641553a4.svg" alt="g" style="vertical-align: -3px"/>).
+However, this work will exploit these methods with a specific purpose in mind: to numerically integrate $g$
+against the probability density function <img class="math" src="../_images/math/893e2b3f3bb9ef071c6c017facda2c1f04d8805f.svg" alt="f_{\\vect{X}}" style="vertical-align: -3px"/> which relates to a central tendency estimation of an output
+random variable <img class="math" src="../_images/math/41ebe0974a2f5ac0c8c7aadd412e6e2ba4abc674.svg" alt="Y=g(\\vect{X})" style="vertical-align: -4px"/>, resulting from an uncertainty propagation step.</p>
+<p>Recently, other sampling methods based on the notions of discrepancy between distributions in a kernel-based
+functional space were used to approximate integrals. More precisely, one can mention the use
+of the distance called the <em>maximum mean discrepancy</em> (MMD) as a core ingredient of advanced sampling
+methods such as the <em>Support points</em> by (Mak &amp; Joseph, 2018) and the <em>Kernel herding</em> by (Chen &amp; al., 2010).
+The MMD is convenient to manipulate since it can simply be expressed using the underlying kernel arbitrarily arbitrary chosen.
+Let us setup the introduction of the Kernel herding and Support points methods by briefly defining a few mathematical concepts.</p>
+<section id="references">
+<h2>References<a class="headerlink" href="#references" title="Permalink to this heading">¶</a></h2>
+<ul class="simple">
+<li><p>Chen, Y., M. Welling, &amp; A. Smola (2010). Super-samples from kernel herding. In Proceedings of the Twenty-Sixth
+Conference on Uncertainty in Artificial Intelligence, pp. 109 – 116.</p></li>
+<li><p>Mak, S. &amp; V. R. Joseph (2018). Support points. The Annals of Statistics 46, 2562 – 2592.</p></li>
+<li><p>Fekhari, E., B. Iooss, J. Mure, L. Pronzato, &amp; M. Rendas (2022). Model predictivity assessment: incremental
+test-set selection and accuracy evaluation. preprint.</p></li>
+<li><p>Briol, F.-X., C. Oates, M. Girolami, M. Osborne, &amp; D. Sejdinovic (2019). Probabilistic Integration: A Role in
+Statistical Computation? Statistical Science 34, 1 – 22.</p></li>
+<li><p>Huszár, F. &amp; D. Duvenaud (2012). Optimally-Weighted Herding is Bayesian Quadrature. In Proceedings of the
+Twenty-Eighth Conference on Uncertainty in Artificial Intelligence, pp. 377 – 386.</p></li>
+<li><p>Teymur, O., J. Gorham, M. Riabiz, &amp; C. Oates (2021). Optimal quantisation of probability measures using
+maximum mean discrepancy. In International Conference on Artificial Intelligence and Statistics, pp. 1027 – 1035.</p></li>
+</ul>
+</section>
 </section>
 
 
@@ -122,7 +270,7 @@
           <a href="../index.html" title="Documentation"
              >previous</a> |</li>
         <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Principle of kernel herding methods</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Principle of kernel-based sampling methods</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">

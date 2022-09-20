@@ -5,12 +5,12 @@
 
 Computation times
 =================
-**00:48.980** total execution time for **auto_example** files:
+**01:19.547** total execution time for **auto_example** files:
 
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_example_plot_energy_example.py` (``plot_energy_example.py``)                         | 00:42.815 | 0.0 MB |
+| :ref:`sphx_glr_auto_example_plot_energy_example.py` (``plot_energy_example.py``)                         | 01:10.348 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_example_plot_kernel_herding_example.py` (``plot_kernel_herding_example.py``)         | 00:04.189 | 0.0 MB |
+| :ref:`sphx_glr_auto_example_plot_kernel_herding_example.py` (``plot_kernel_herding_example.py``)         | 00:06.283 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_example_plot_quadrature_weights_example.py` (``plot_quadrature_weights_example.py``) | 00:01.976 | 0.0 MB |
+| :ref:`sphx_glr_auto_example_plot_quadrature_weights_example.py` (``plot_quadrature_weights_example.py``) | 00:02.916 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
