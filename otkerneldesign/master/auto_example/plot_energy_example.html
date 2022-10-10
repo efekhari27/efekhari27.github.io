@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Energy computation example &#8212; otkerneldesign 0.1.1 documentation</title>
+    <title>Energy computation example &#8212; otkerneldesign 0.1.4 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/openturns.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
@@ -19,10 +19,11 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../_static/Icon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="next" title="Bayesian quadrature weighting examples" href="plot_quadrature_weights_example.html" />
+    <link rel="next" title="Machine learning validation example" href="plot_ML_validation_example.html" />
     <link rel="prev" title="Kernel herding examples" href="plot_kernel_herding_example.html" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
@@ -51,12 +52,12 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="plot_quadrature_weights_example.html" title="Bayesian quadrature weighting examples"
+          <a href="plot_ML_validation_example.html" title="Machine learning validation example"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="plot_kernel_herding_example.html" title="Kernel herding examples"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../examples/examples.html" accesskey="U">Examples index</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Energy computation example</a></li> 
       </ul>
@@ -81,8 +82,8 @@
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="plot_quadrature_weights_example.html"
-                          title="next chapter">Bayesian quadrature weighting examples</a></p>
+    <p class="topless"><a href="plot_ML_validation_example.html"
+                          title="next chapter">Machine learning validation example</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -133,7 +134,7 @@ computation for a given sample.</p>
 </div>
 <section id="standard-and-tensorized-kernel-herding">
 <h2>Standard and tensorized kernel herding<a class="headerlink" href="#standard-and-tensorized-kernel-herding" title="Permalink to this heading">¶</a></h2>
-<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">400</span>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">size</span> <span class="o">=</span> <span class="mi">300</span>
 <span class="c1"># Kernel definition</span>
 <span class="n">theta</span> <span class="o">=</span> <span class="mf">0.3</span>
 <span class="n">ker_list</span> <span class="o">=</span> <span class="p">[</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.MaternModel.html#openturns.MaternModel" title="openturns.MaternModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">MaternModel</span></a><span class="p">([</span><span class="n">theta</span><span class="p">],</span> <span class="p">[</span><span class="mf">1.0</span><span class="p">],</span> <span class="mf">2.5</span><span class="p">)]</span> <span class="o">*</span> <span class="n">dimension</span>
@@ -184,18 +185,23 @@ Target energy relative error: 0.169%
 
 <span class="n">fig3</span><span class="p">,</span> <span class="n">ax3</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">subplots</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">sharey</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">sharex</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
 <span class="c1"># Plot data from fig1 and fig2</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data1</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">kh</span><span class="o">.</span><span class="n">_method_label</span> <span class="o">+</span> <span class="s1">&#39;standard&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data2</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">plot_data2</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="n">kht</span><span class="o">.</span><span class="n">_method_label</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">kh_target_energy</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;target energy standard&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">kht_target_energy</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;target energy tensorized&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data1</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">plot_data1</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="n">kh</span><span class="o">.</span><span class="n">_method_label</span> <span class="o">+</span> <span class="s1">&#39;standard&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">plot_data2</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">0</span><span class="p">],</span> <span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">plot_data2</span><span class="o">.</span><span class="n">get_data</span><span class="p">()[</span><span class="mi">1</span><span class="p">]),</span> <span class="n">label</span><span class="o">=</span><span class="n">kht</span><span class="o">.</span><span class="n">_method_label</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">kh_target_energy</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C0&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;target energy standard&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">axhline</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="n">kht_target_energy</span><span class="p">),</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C1&#39;</span><span class="p">,</span> <span class="n">linestyle</span><span class="o">=</span><span class="s1">&#39;dashed&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;target energy tensorized&#39;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_title</span><span class="p">(</span><span class="s1">&#39;Energy convergence&#39;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">set_xlabel</span><span class="p">(</span><span class="s1">&#39;design size ($n$)&#39;</span><span class="p">)</span>
-<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Energy&#39;</span><span class="p">)</span>
+<span class="n">ax3</span><span class="o">.</span><span class="n">set_ylabel</span><span class="p">(</span><span class="s1">&#39;Energy (log-scale)&#39;</span><span class="p">)</span>
 <span class="n">ax3</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s1">&#39;best&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_energy_example_001.png" srcset="../_images/sphx_glr_plot_energy_example_001.png" alt="Energy convergence" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 1 minutes  10.348 seconds)</p>
+<img src="../_images/sphx_glr_plot_energy_example_001.png" srcset="../_images/sphx_glr_plot_energy_example_001.png" alt="Energy convergence" class = "sphx-glr-single-img"/><div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>/usr/share/miniconda3/envs/test/lib/python3.10/site-packages/otkerneldesign-0.1.4-py3.10.egg/otkerneldesign/KernelHerding.py:312: RuntimeWarning: Mean of empty slice.
+/usr/share/miniconda3/envs/test/lib/python3.10/site-packages/numpy/core/_methods.py:190: RuntimeWarning: invalid value encountered in double_scalars
+  ret = ret.dtype.type(ret / rcount)
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  34.061 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-example-plot-energy-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/8c76efd3b5e265ee01cd89e5d318e45d/plot_energy_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_energy_example.py</span></code></a></p>
@@ -221,19 +227,19 @@ Target energy relative error: 0.169%
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="plot_quadrature_weights_example.html" title="Bayesian quadrature weighting examples"
+          <a href="plot_ML_validation_example.html" title="Machine learning validation example"
              >next</a> |</li>
         <li class="right" >
           <a href="plot_kernel_herding_example.html" title="Kernel herding examples"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../examples/examples.html" >Examples index</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">Energy computation example</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

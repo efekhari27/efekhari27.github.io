@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>KernelHerdingTensorized &#8212; otkerneldesign 0.1.1 documentation</title>
+    <title>KernelHerdingTensorized &#8212; otkerneldesign 0.1.4 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/openturns.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -19,10 +19,11 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../../_static/Icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="TestSetWeighting" href="otkerneldesign.TestSetWeighting.html" />
+    <link rel="next" title="GreedySupportPoints" href="otkerneldesign.GreedySupportPoints.html" />
     <link rel="prev" title="KernelHerding" href="otkerneldesign.KernelHerding.html" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
@@ -51,12 +52,12 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="otkerneldesign.TestSetWeighting.html" title="TestSetWeighting"
+          <a href="otkerneldesign.GreedySupportPoints.html" title="GreedySupportPoints"
              accesskey="N">next</a> |</li>
         <li class="right" >
           <a href="otkerneldesign.KernelHerding.html" title="KernelHerding"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../user_manual.html" accesskey="U">Index of classes</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">KernelHerdingTensorized</a></li> 
       </ul>
@@ -64,14 +65,37 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">KernelHerdingTensorized</a><ul>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized</span></code></a><ul>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.compute_criterion"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.compute_criterion()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.compute_current_energy"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.compute_current_energy()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.compute_current_potential"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.compute_current_potential()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.compute_mmd"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.compute_mmd()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.compute_target_energy"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.compute_target_energy()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.compute_target_potential"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.compute_target_potential()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.draw_energy_convergence"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.draw_energy_convergence()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.draw_mmd_convergence"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.draw_mmd_convergence()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.get_candidate_set"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.get_candidate_set()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.get_indices"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.get_indices()</span></code></a></li>
+<li><a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.select_design"><code class="docutils literal notranslate"><span class="pre">KernelHerdingTensorized.select_design()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
     <p class="topless"><a href="otkerneldesign.KernelHerding.html"
                           title="previous chapter">KernelHerding</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="otkerneldesign.TestSetWeighting.html"
-                          title="next chapter">TestSetWeighting</a></p>
+    <p class="topless"><a href="otkerneldesign.GreedySupportPoints.html"
+                          title="next chapter">GreedySupportPoints</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -102,7 +126,7 @@
 <h1>KernelHerdingTensorized<a class="headerlink" href="#kernelherdingtensorized" title="Permalink to this heading">¶</a></h1>
 <dl class="py class">
 <dt class="sig sig-object py" id="otkerneldesign.KernelHerdingTensorized">
-<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otkerneldesign.</span></span><span class="sig-name descname"><span class="pre">KernelHerdingTensorized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate_set_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_design</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerdingTensorized" title="Permalink to this definition">¶</a></dt>
+<em class="property"><span class="pre">class</span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">otkerneldesign.</span></span><span class="sig-name descname"><span class="pre">KernelHerdingTensorized</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">kernel</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">distribution</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate_set_size</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">candidate_set</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">initial_design</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">None</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">is_greedy</span></span><span class="o"><span class="pre">=</span></span><span class="default_value"><span class="pre">False</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerdingTensorized" title="Permalink to this definition">¶</a></dt>
 <dd><p>Incrementally select new design points with tensorized kernel herding. 
 The main difference with the <a class="reference internal" href="otkerneldesign.KernelHerding.html#otkerneldesign.KernelHerding" title="otkerneldesign.KernelHerding"><code class="xref py py-class docutils literal notranslate"><span class="pre">KernelHerding</span></code></a> class
 is contained in the <a class="reference internal" href="#otkerneldesign.KernelHerdingTensorized.compute_target_potential" title="otkerneldesign.KernelHerdingTensorized.compute_target_potential"><code class="xref py py-meth docutils literal notranslate"><span class="pre">compute_target_potential()</span></code></a> method.
@@ -130,6 +154,10 @@ Unnecessary if <em>candidate_set</em> is specified. Otherwise, <img class="math"
 If not specified, then <em>distribution</em> and <em>candidate_set_size</em> must be in order to generate it automatically.</p>
 </dd>
 <dt><strong>initial_design</strong><span class="classifier">2-d list of float</span></dt><dd><p>Sample of points that must be included in the design. Empty by default.</p>
+</dd>
+<dt><strong>is_greedy</strong><span class="classifier">Boolean</span></dt><dd><p>Set to False by default, then the criterion is the difference between the current and target potential. 
+When set to True, the MMD minimization is strictly greedy. In practice, the two criteria are very close, 
+only for the greedy one the current potential is multiplied by <img class="math" src="../../_images/math/e81834ca574cbdfa4ebf3f06deb0dd53c1fdfbf5.svg" alt="(\frac{m}{m+1})" style="vertical-align: -7px"/>.</p>
 </dd>
 </dl>
 </dd>
@@ -223,6 +251,27 @@ in the Sample of candidate points</p>
 </dd></dl>
 
 <dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerdingTensorized.compute_mmd">
+<span class="sig-name descname"><span class="pre">compute_mmd</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">design_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerdingTensorized.compute_mmd" title="Permalink to this definition">¶</a></dt>
+<dd><p>Compute Maximum Mean Discrepancy between <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/> and <img class="math" src="../../_images/math/42df90e1f06eb6521bf3afba7f96eaa9b8393e73.svg" alt="\zeta_n = \frac{1}{n} \sum_{i=1}^{n} \delta(\vect{x}^{(i)})" style="vertical-align: -6px"/>.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points
+in the Sample of candidate points</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>mmd</strong><span class="classifier">float</span></dt><dd><p>Maximum Mean Discrepancy between target and current measure.</p>
+</dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
 <dt class="sig sig-object py" id="otkerneldesign.KernelHerdingTensorized.compute_target_energy">
 <span class="sig-name descname"><span class="pre">compute_target_energy</span></span><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerdingTensorized.compute_target_energy" title="Permalink to this definition">¶</a></dt>
 <dd><p>Compute the energy of the target probability measure <img class="math" src="../../_images/math/a5e12eead60991d1c277108c221717bd28e18e50.svg" alt="\mu" style="vertical-align: -3px"/>.</p>
@@ -286,6 +335,28 @@ in the Sample of candidate points</p>
 <dt class="field-even">Returns<span class="colon">:</span></dt>
 <dd class="field-even"><dl class="simple">
 <dt><strong>fig</strong><span class="classifier">matplotlib.Figure</span></dt><dd><p>Energy convergence of the design of experiments</p>
+</dd>
+<dt><strong>plot_data</strong><span class="classifier">data used to plot the figure</span></dt><dd></dd>
+</dl>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py method">
+<dt class="sig sig-object py" id="otkerneldesign.KernelHerdingTensorized.draw_mmd_convergence">
+<span class="sig-name descname"><span class="pre">draw_mmd_convergence</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">design_indices</span></span></em><span class="sig-paren">)</span><a class="headerlink" href="#otkerneldesign.KernelHerdingTensorized.draw_mmd_convergence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Draws the convergence of the MMD between a discrete measure and the target measure.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><dl class="simple">
+<dt><strong>design_indices</strong><span class="classifier">list of positive int</span></dt><dd><p>List of the indices of the selected points
+in the Sample of candidate points</p>
+</dd>
+</dl>
+</dd>
+<dt class="field-even">Returns<span class="colon">:</span></dt>
+<dd class="field-even"><dl class="simple">
+<dt><strong>fig</strong><span class="classifier">matplotlib.Figure</span></dt><dd><p>MMD convergence of the design of experiments</p>
 </dd>
 <dt><strong>plot_data</strong><span class="classifier">data used to plot the figure</span></dt><dd></dd>
 </dl>
@@ -371,19 +442,19 @@ in the Sample of candidate points</p>
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="otkerneldesign.TestSetWeighting.html" title="TestSetWeighting"
+          <a href="otkerneldesign.GreedySupportPoints.html" title="GreedySupportPoints"
              >next</a> |</li>
         <li class="right" >
           <a href="otkerneldesign.KernelHerding.html" title="KernelHerding"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../user_manual.html" >Index of classes</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">KernelHerdingTensorized</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

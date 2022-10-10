@@ -1,0 +1,9 @@
+﻿BayesianQuadratureWeighting
+==========================================
+
+.. currentmodule:: otkerneldesign
+
+.. autoclass:: BayesianQuadratureWeighting
+
+   
+   

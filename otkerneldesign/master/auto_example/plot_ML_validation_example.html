@@ -1,0 +1,323 @@
+
+<!DOCTYPE html>
+
+<html lang="python">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
+
+    <title>Machine learning validation example &#8212; otkerneldesign 0.1.4 documentation</title>
+    <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/openturns.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-binder.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-dataframe.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/sg_gallery-rendered-html.css" />
+    <link rel="stylesheet" type="text/css" href="../_static/css/custom.css" />
+    <script data-url_root="../" id="documentation_options" src="../_static/documentation_options.js"></script>
+    <script src="../_static/jquery.js"></script>
+    <script src="../_static/underscore.js"></script>
+    <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
+    <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
+    <link rel="shortcut icon" href="../_static/Icon.ico"/>
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="Bayesian quadrature weighting example" href="plot_quadrature_weights_example.html" />
+    <link rel="prev" title="Energy computation example" href="plot_energy_example.html" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
+          rel='stylesheet' type='text/css' />
+ 
+
+  </head><body>
+<div class="pageheader">
+  <ul>
+    <li><a href="../index.html">Home</a></li>
+    <li><a href="../user_manual/user_manual.html">Doc</a></li>
+    <li><a href="../examples/examples.html">Examples</a></li>
+  </ul>
+  <a href="../index.html">
+    <h1>
+      <img src="../_static/logo-openturns-wo-bg.png" alt="" width=100px height=100px />
+      otkerneldesign
+    </h1>
+    <h2> Module otkerneldesign </h2>
+  </a>
+</div>
+
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="plot_quadrature_weights_example.html" title="Bayesian quadrature weighting example"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="plot_energy_example.html" title="Energy computation example"
+             accesskey="P">previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../examples/examples.html" accesskey="U">Examples index</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Machine learning validation example</a></li> 
+      </ul>
+    </div>
+      <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
+        <div class="sphinxsidebarwrapper">
+  <div>
+    <h3><a href="../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">Machine learning validation example</a><ul>
+<li><a class="reference internal" href="#regression-model-of-a-2d-function">Regression model of a 2D function</a></li>
+<li><a class="reference internal" href="#kriging-model-fit-and-validation">Kriging model fit and validation</a></li>
+<li><a class="reference internal" href="#adding-test-set-to-learning-set">Adding test set to learning set</a></li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
+    <h4>Previous topic</h4>
+    <p class="topless"><a href="plot_energy_example.html"
+                          title="previous chapter">Energy computation example</a></p>
+  </div>
+  <div>
+    <h4>Next topic</h4>
+    <p class="topless"><a href="plot_quadrature_weights_example.html"
+                          title="next chapter">Bayesian quadrature weighting example</a></p>
+  </div>
+  <div role="note" aria-label="source link">
+    <h3>This Page</h3>
+    <ul class="this-page-menu">
+      <li><a href="../_sources/auto_example/plot_ML_validation_example.rst.txt"
+            rel="nofollow">Show Source</a></li>
+    </ul>
+   </div>
+<div id="searchbox" style="display: none" role="search">
+  <h3 id="searchlabel">Quick search</h3>
+    <div class="searchformwrapper">
+    <form class="search" action="../search.html" method="get">
+      <input type="text" name="q" aria-labelledby="searchlabel" autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false"/>
+      <input type="submit" value="Go" />
+    </form>
+    </div>
+</div>
+<script>document.getElementById('searchbox').style.display = "block"</script>
+        </div>
+      </div>
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body" role="main">
+            
+  <div class="sphx-glr-download-link-note admonition note">
+<p class="admonition-title">Note</p>
+<p>Click <a class="reference internal" href="#sphx-glr-download-auto-example-plot-ml-validation-example-py"><span class="std std-ref">here</span></a>
+to download the full example code</p>
+</div>
+<section class="sphx-glr-example-title" id="machine-learning-validation-example">
+<span id="sphx-glr-auto-example-plot-ml-validation-example-py"></span><h1>Machine learning validation example<a class="headerlink" href="#machine-learning-validation-example" title="Permalink to this heading">¶</a></h1>
+<p>The aim of this page is to provide simple use-case where kernel design
+is used to build a design of experiments complementary to an existing one,
+either to enhance a machine learning model or for validation.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">import</span> <span class="nn">openturns</span> <span class="k">as</span> <span class="nn">ot</span>
+<span class="kn">import</span> <span class="nn">otkerneldesign</span> <span class="k">as</span> <span class="nn">otkd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">from</span> <span class="nn">matplotlib</span> <span class="kn">import</span> <span class="n">cm</span>
+</pre></div>
+</div>
+<p>The following helper class will make plotting easier.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">DrawFunctions</span><span class="p">:</span>
+    <span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="n">dim</span> <span class="o">=</span> <span class="mi">2</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">grid_size</span> <span class="o">=</span> <span class="mi">100</span>
+        <span class="n">lowerbound</span> <span class="o">=</span> <span class="p">[</span><span class="mf">0.</span><span class="p">]</span> <span class="o">*</span> <span class="n">dim</span>
+        <span class="n">upperbound</span> <span class="o">=</span> <span class="p">[</span><span class="mf">1.</span><span class="p">]</span> <span class="o">*</span> <span class="n">dim</span>
+        <span class="n">mesher</span> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.IntervalMesher.html#openturns.IntervalMesher" title="openturns.IntervalMesher" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">IntervalMesher</span></a><span class="p">([</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_size</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="n">dim</span><span class="p">)</span>
+        <span class="n">interval</span> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Interval.html#openturns.Interval" title="openturns.Interval" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">Interval</span></a><span class="p">(</span><span class="n">lowerbound</span><span class="p">,</span> <span class="n">upperbound</span><span class="p">)</span>
+        <span class="n">mesh</span> <span class="o">=</span> <span class="n">mesher</span><span class="o">.</span><span class="n">build</span><span class="p">(</span><span class="n">interval</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">nodes</span> <span class="o">=</span> <span class="n">mesh</span><span class="o">.</span><span class="n">getVertices</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X1</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">)</span><span class="o">.</span><span class="n">T</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_size</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">draw_2D_contour</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">title</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="n">colorbar</span><span class="o">=</span><span class="n">cm</span><span class="o">.</span><span class="n">viridis</span><span class="p">):</span>
+        <span class="n">fig</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span> <span class="mi">6</span><span class="p">))</span>
+        <span class="k">if</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Zpdf</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution.computePDF" title="openturns.ComposedDistribution.computePDF" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">distribution</span><span class="o">.</span><span class="n">computePDF</span></a><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_size</span><span class="p">)</span>
+            <span class="n">nb_isocurves</span> <span class="o">=</span> <span class="mi">9</span>
+            <span class="n">contours</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">contour</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X1</span><span class="p">,</span> <span class="n">Zpdf</span><span class="p">,</span> <span class="n">nb_isocurves</span><span class="p">,</span> <span class="n">colors</span><span class="o">=</span><span class="s1">&#39;black&#39;</span><span class="p">,</span> <span class="n">alpha</span><span class="o">=</span><span class="mf">0.6</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">clabel</span><span class="p">(</span><span class="n">contours</span><span class="p">,</span> <span class="n">inline</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="mi">8</span><span class="p">)</span>
+        <span class="k">if</span> <span class="n">function</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="n">Z</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">function</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">nodes</span><span class="p">))</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">grid_size</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">grid_size</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">contourf</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">X0</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">X1</span><span class="p">,</span> <span class="n">Z</span><span class="p">,</span> <span class="mi">18</span><span class="p">,</span> <span class="n">cmap</span><span class="o">=</span><span class="n">colorbar</span><span class="p">)</span>
+            <span class="n">plt</span><span class="o">.</span><span class="n">colorbar</span><span class="p">()</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">title</span><span class="p">(</span><span class="n">title</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s2">&quot;$x_0$&quot;</span><span class="p">)</span>
+        <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s2">&quot;$x_1$&quot;</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">fig</span>
+</pre></div>
+</div>
+<section id="regression-model-of-a-2d-function">
+<h2>Regression model of a 2D function<a class="headerlink" href="#regression-model-of-a-2d-function" title="Permalink to this heading">¶</a></h2>
+<p>Define the function to be approximated.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">function_expression</span> <span class="o">=</span> <span class="s1">&#39;exp((2*x1-1))/5 - (2*x2-1)/5 + ((2*x2-1)^6)/3 + 4*((2*x2-1)^4) - 4*((2*x2-1)^2) + (7/10)*((2*x1-1)^2) + (2*x1-1)^4 + 3/(4*((2*x1-1)^2) + 4*((2*x2-1)^2) + 1)&#39;</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction" title="openturns.SymbolicFunction" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">irregular_function</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction" title="openturns.SymbolicFunction" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">SymbolicFunction</span></a><span class="p">([</span><span class="s1">&#39;x1&#39;</span><span class="p">,</span> <span class="s1">&#39;x2&#39;</span><span class="p">],</span> <span class="p">[</span><span class="n">function_expression</span><span class="p">])</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction.setName" title="openturns.SymbolicFunction.setName" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">irregular_function</span><span class="o">.</span><span class="n">setName</span></a><span class="p">(</span><span class="s2">&quot;Irregular&quot;</span><span class="p">)</span>
+<span class="nb">print</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction" title="openturns.SymbolicFunction" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">irregular_function</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>[x1,x2]-&gt;[exp((2*x1-1))/5 - (2*x2-1)/5 + ((2*x2-1)^6)/3 + 4*((2*x2-1)^4) - 4*((2*x2-1)^2) + (7/10)*((2*x1-1)^2) + (2*x1-1)^4 + 3/(4*((2*x1-1)^2) + 4*((2*x2-1)^2) + 1)]
+</pre></div>
+</div>
+<p>Draw a contours of the 2D function.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">d</span> <span class="o">=</span> <span class="n">DrawFunctions</span><span class="p">()</span>
+<span class="n">d</span><span class="o">.</span><span class="n">draw_2D_contour</span><span class="p">(</span><span class="s2">&quot;Irregular function&quot;</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction" title="openturns.SymbolicFunction" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">irregular_function</span></a><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_plot_ML_validation_example_001.png" srcset="../_images/sphx_glr_plot_ML_validation_example_001.png" alt="Irregular function" class = "sphx-glr-single-img"/><p>Define the joint input random vector, here uniform
+since our goal is to build a good regression model
+on the entire domain.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">ComposedDistribution</span></a><span class="p">([</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Uniform.html#openturns.Uniform" title="openturns.Uniform" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">Uniform</span></a><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">)]</span> <span class="o">*</span> <span class="mi">2</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Build a learning set, for example by optimized Latin Hypercube Sampling.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">learning_size</span> <span class="o">=</span> <span class="mi">20</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.LHSExperiment.html#openturns.LHSExperiment" title="openturns.LHSExperiment" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">LHS_experiment</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.LHSExperiment.html#openturns.LHSExperiment" title="openturns.LHSExperiment" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">LHSExperiment</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a><span class="p">,</span> <span class="n">learning_size</span><span class="p">,</span> <span class="kc">True</span><span class="p">,</span> <span class="kc">True</span><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.LHSExperiment.html#openturns.LHSExperiment.generate" title="openturns.LHSExperiment.generate" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">LHS_experiment</span><span class="o">.</span><span class="n">generate</span></a><span class="p">()</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_learn</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction" title="openturns.SymbolicFunction" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">irregular_function</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a><span class="p">)</span>
+</pre></div>
+</div>
+<p>Build a design of experiments complementary to
+the existing learning set (e.g., for testing).
+Note that the kernel herding method could also be used.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">test_size</span> <span class="o">=</span> <span class="mi">10</span>
+<span class="n">sp</span> <span class="o">=</span> <span class="n">otkd</span><span class="o">.</span><span class="n">GreedySupportPoints</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution" title="openturns.ComposedDistribution" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">distribution</span></a><span class="p">,</span> <span class="n">initial_design</span><span class="o">=</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a><span class="p">)</span>
+<span class="n">x_test</span> <span class="o">=</span> <span class="n">sp</span><span class="o">.</span><span class="n">select_design</span><span class="p">(</span><span class="n">test_size</span><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction" title="openturns.SymbolicFunction" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">irregular_function</span></a><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Plot the Learning set (in red) and testing sets
+(in black with the corresponding construction design order).</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">fig</span> <span class="o">=</span> <span class="n">d</span><span class="o">.</span><span class="n">draw_2D_contour</span><span class="p">(</span><span class="s2">&quot;Irregular function&quot;</span><span class="p">,</span> <span class="n">function</span><span class="o">=</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction" title="openturns.SymbolicFunction" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">irregular_function</span></a><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Learning set ($m=</span><span class="si">{}</span><span class="s1">$)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;$L$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;C3&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">x_test</span><span class="p">[:,</span> <span class="mi">0</span><span class="p">],</span> <span class="n">x_test</span><span class="p">[:,</span> <span class="mi">1</span><span class="p">],</span> <span class="n">label</span><span class="o">=</span><span class="s1">&#39;Test set ($n=</span><span class="si">{}</span><span class="s1">$)&#39;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">x_test</span><span class="p">)),</span> <span class="n">marker</span><span class="o">=</span><span class="s1">&#39;$T$&#39;</span><span class="p">,</span> <span class="n">color</span><span class="o">=</span><span class="s1">&#39;k&#39;</span><span class="p">)</span>
+<span class="c1"># Test set indexes</span>
+<span class="p">[</span><span class="n">plt</span><span class="o">.</span><span class="n">text</span><span class="p">(</span><span class="n">x_test</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.02</span><span class="p">,</span> <span class="n">x_test</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]</span> <span class="o">*</span> <span class="mf">1.02</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">i</span> <span class="o">+</span> <span class="mi">1</span><span class="p">),</span> <span class="n">weight</span><span class="o">=</span><span class="s2">&quot;bold&quot;</span><span class="p">,</span> <span class="n">fontsize</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">max</span><span class="p">((</span><span class="mi">20</span> <span class="o">-</span> <span class="n">i</span><span class="p">,</span> <span class="mi">5</span><span class="p">)))</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">test_size</span><span class="p">)]</span>
+<span class="n">lgd</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">(</span><span class="n">bbox_to_anchor</span><span class="o">=</span><span class="p">(</span><span class="mf">0.5</span><span class="p">,</span> <span class="o">-</span><span class="mf">0.1</span><span class="p">),</span> <span class="n">loc</span><span class="o">=</span><span class="s1">&#39;upper center&#39;</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">tight_layout</span><span class="p">(</span><span class="n">pad</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
+</pre></div>
+</div>
+<img src="../_images/sphx_glr_plot_ML_validation_example_002.png" srcset="../_images/sphx_glr_plot_ML_validation_example_002.png" alt="Irregular function" class = "sphx-glr-single-img"/></section>
+<section id="kriging-model-fit-and-validation">
+<h2>Kriging model fit and validation<a class="headerlink" href="#kriging-model-fit-and-validation" title="Permalink to this heading">¶</a></h2>
+<p>Build a simple Kriging regression model.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Basis.html#openturns.Basis" title="openturns.Basis" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">basis</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.ConstantBasisFactory.html#openturns.ConstantBasisFactory" title="openturns.ConstantBasisFactory" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">ConstantBasisFactory</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution.getDimension" title="openturns.ComposedDistribution.getDimension" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">distribution</span><span class="o">.</span><span class="n">getDimension</span></a><span class="p">())</span><span class="o">.</span><span class="n">build</span><span class="p">()</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.MaternModel.html#openturns.MaternModel" title="openturns.MaternModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">covariance_model</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.MaternModel.html#openturns.MaternModel" title="openturns.MaternModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">MaternModel</span></a><span class="p">([</span><span class="mf">0.2</span><span class="p">],</span> <span class="mf">2.5</span><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html#openturns.KrigingAlgorithm" title="openturns.KrigingAlgorithm" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html#openturns.KrigingAlgorithm" title="openturns.KrigingAlgorithm" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">KrigingAlgorithm</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_learn</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.MaternModel.html#openturns.MaternModel" title="openturns.MaternModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">covariance_model</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Basis.html#openturns.Basis" title="openturns.Basis" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">basis</span></a><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html#openturns.KrigingAlgorithm.run" title="openturns.KrigingAlgorithm.run" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">algo</span><span class="o">.</span><span class="n">run</span></a><span class="p">()</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingResult.html#openturns.KrigingResult" title="openturns.KrigingResult" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html#openturns.KrigingAlgorithm.getResult" title="openturns.KrigingAlgorithm.getResult" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">algo</span><span class="o">.</span><span class="n">getResult</span></a><span class="p">()</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Function.html#openturns.Function" title="openturns.Function" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kriging_model</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingResult.html#openturns.KrigingResult.getMetaModel" title="openturns.KrigingResult.getMetaModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">result</span><span class="o">.</span><span class="n">getMetaModel</span></a><span class="p">()</span>
+</pre></div>
+</div>
+<p>Build a large Monte Carlo reference test set and
+compute a reference performance metric on it.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.RandomGenerator.html#openturns.RandomGenerator.SetSeed" title="openturns.RandomGenerator.SetSeed" class="sphx-glr-backref-module-openturns-RandomGenerator sphx-glr-backref-type-py-method"><span class="n">ot</span><span class="o">.</span><span class="n">RandomGenerator</span><span class="o">.</span><span class="n">SetSeed</span></a><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">xref_test</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.ComposedDistribution.html#openturns.ComposedDistribution.getSample" title="openturns.ComposedDistribution.getSample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">distribution</span><span class="o">.</span><span class="n">getSample</span></a><span class="p">(</span><span class="mi">10000</span><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">yref_test</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.SymbolicFunction.html#openturns.SymbolicFunction" title="openturns.SymbolicFunction" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">irregular_function</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">xref_test</span></a><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation" title="openturns.MetaModelValidation" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ref_val</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation" title="openturns.MetaModelValidation" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">MetaModelValidation</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">xref_test</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">yref_test</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Function.html#openturns.Function" title="openturns.Function" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kriging_model</span></a><span class="p">)</span>
+<span class="n">ref_Q2</span> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation.computePredictivityFactor" title="openturns.MetaModelValidation.computePredictivityFactor" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">ref_val</span><span class="o">.</span><span class="n">computePredictivityFactor</span></a><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Reference Monte Carlo (n=10000) predictivity coefficient: </span><span class="si">{:.3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_Q2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Reference Monte Carlo (n=10000) predictivity coefficient: 0.842
+</pre></div>
+</div>
+<p>In comparison, our test set underestimates
+the performance of the Kriging model.
+This situation is expected since the test points are
+supposed to be far from the learning set.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation" title="openturns.MetaModelValidation" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">val</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation" title="openturns.MetaModelValidation" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">MetaModelValidation</span></a><span class="p">(</span><span class="n">x_test</span><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Function.html#openturns.Function" title="openturns.Function" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kriging_model</span></a><span class="p">)</span>
+<span class="n">estimated_Q2</span> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation.computePredictivityFactor" title="openturns.MetaModelValidation.computePredictivityFactor" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">val</span><span class="o">.</span><span class="n">computePredictivityFactor</span></a><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Support points (n=</span><span class="si">{}</span><span class="s2">) predictivity coefficient: </span><span class="si">{:.3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">test_size</span><span class="p">,</span> <span class="n">estimated_Q2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Support points (n=10) predictivity coefficient: 0.788
+</pre></div>
+</div>
+<p>To take this into account,
+let us compute optimal weights for validation.
+After applying the weights, the estimated performance
+is more optimistic and closer to the reference value.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">tsw</span> <span class="o">=</span> <span class="n">otkd</span><span class="o">.</span><span class="n">TestSetWeighting</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a><span class="p">,</span> <span class="n">x_test</span><span class="p">,</span> <span class="n">sp</span><span class="o">.</span><span class="n">_candidate_set</span><span class="p">)</span>
+<span class="n">optimal_test_weights</span> <span class="o">=</span> <span class="n">tsw</span><span class="o">.</span><span class="n">compute_weights</span><span class="p">()</span>
+<span class="n">weighted_Q2</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">)</span><span class="o">.</span><span class="n">flatten</span><span class="p">()</span> <span class="o">*</span> <span class="n">optimal_test_weights</span><span class="p">)</span> <span class="o">/</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample.computeVariance" title="openturns.Sample.computeVariance" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">y_test</span><span class="o">.</span><span class="n">computeVariance</span></a><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Weighted support points (n=</span><span class="si">{}</span><span class="s2">) predictivity coefficient: </span><span class="si">{:.3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">test_size</span><span class="p">,</span> <span class="n">weighted_Q2</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Weighted support points (n=10) predictivity coefficient: 0.881
+</pre></div>
+</div>
+</section>
+<section id="adding-test-set-to-learning-set">
+<h2>Adding test set to learning set<a class="headerlink" href="#adding-test-set-to-learning-set" title="Permalink to this heading">¶</a></h2>
+<p>The test set can now be added to the learning set to enhance the Kriging model</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample.add" title="openturns.Sample.add" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">x_learn</span><span class="o">.</span><span class="n">add</span></a><span class="p">(</span><span class="n">x_test</span><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample.add" title="openturns.Sample.add" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">y_learn</span><span class="o">.</span><span class="n">add</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_test</span></a><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html#openturns.KrigingAlgorithm" title="openturns.KrigingAlgorithm" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">algo_enhanced</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html#openturns.KrigingAlgorithm" title="openturns.KrigingAlgorithm" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">KrigingAlgorithm</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">x_learn</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">y_learn</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.MaternModel.html#openturns.MaternModel" title="openturns.MaternModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">covariance_model</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Basis.html#openturns.Basis" title="openturns.Basis" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">basis</span></a><span class="p">)</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html#openturns.KrigingAlgorithm.run" title="openturns.KrigingAlgorithm.run" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">algo_enhanced</span><span class="o">.</span><span class="n">run</span></a><span class="p">()</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingResult.html#openturns.KrigingResult" title="openturns.KrigingResult" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">result_enhanced</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingAlgorithm.html#openturns.KrigingAlgorithm.getResult" title="openturns.KrigingAlgorithm.getResult" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">algo_enhanced</span><span class="o">.</span><span class="n">getResult</span></a><span class="p">()</span>
+<a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Function.html#openturns.Function" title="openturns.Function" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kriging_enhanced</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.KrigingResult.html#openturns.KrigingResult.getMetaModel" title="openturns.KrigingResult.getMetaModel" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">result_enhanced</span><span class="o">.</span><span class="n">getMetaModel</span></a><span class="p">()</span>
+
+<a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation" title="openturns.MetaModelValidation" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">ref_val_enhanced</span></a> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation" title="openturns.MetaModelValidation" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class"><span class="n">ot</span><span class="o">.</span><span class="n">MetaModelValidation</span></a><span class="p">(</span><a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">xref_test</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="openturns.Sample" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">yref_test</span></a><span class="p">,</span> <a href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Function.html#openturns.Function" title="openturns.Function" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-class sphx-glr-backref-instance"><span class="n">kriging_enhanced</span></a><span class="p">)</span>
+<span class="n">ref_Q2_enhanced</span> <span class="o">=</span> <a href="http://openturns.github.io/openturns/latest/user_manual/response_surface/_generated/openturns.MetaModelValidation.html#openturns.MetaModelValidation.computePredictivityFactor" title="openturns.MetaModelValidation.computePredictivityFactor" class="sphx-glr-backref-module-openturns sphx-glr-backref-type-py-method"><span class="n">ref_val_enhanced</span><span class="o">.</span><span class="n">computePredictivityFactor</span></a><span class="p">()[</span><span class="mi">0</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Enhanced Kriging - Monte Carlo (n=10000) predictivity coefficient: </span><span class="si">{:.3}</span><span class="s2">&quot;</span><span class="o">.</span><span class="n">format</span><span class="p">(</span><span class="n">ref_Q2_enhanced</span><span class="p">))</span>
+</pre></div>
+</div>
+<div class="sphx-glr-script-out highlight-none notranslate"><div class="highlight"><pre><span></span>Enhanced Kriging - Monte Carlo (n=10000) predictivity coefficient: 0.964
+</pre></div>
+</div>
+<p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  1.113 seconds)</p>
+<div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-example-plot-ml-validation-example-py">
+<div class="sphx-glr-download sphx-glr-download-python docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/4a2e7549133e39af7d3c153a815f9b4b/plot_ML_validation_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_ML_validation_example.py</span></code></a></p>
+</div>
+<div class="sphx-glr-download sphx-glr-download-jupyter docutils container">
+<p><a class="reference download internal" download="" href="../_downloads/24ec226d294ba5e6426177bea4fe80f3/plot_ML_validation_example.ipynb"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Jupyter</span> <span class="pre">notebook:</span> <span class="pre">plot_ML_validation_example.ipynb</span></code></a></p>
+</div>
+</div>
+</section>
+</section>
+
+
+            <div class="clearer"></div>
+          </div>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related" role="navigation" aria-label="related navigation">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="../genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="plot_quadrature_weights_example.html" title="Bayesian quadrature weighting example"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="plot_energy_example.html" title="Energy computation example"
+             >previous</a> |</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
+          <li class="nav-item nav-item-1"><a href="../examples/examples.html" >Examples index</a> &#187;</li>
+        <li class="nav-item nav-item-this"><a href="">Machine learning validation example</a></li> 
+      </ul>
+    </div>
+    <div class="footer" role="contentinfo">
+        &#169; Copyright 2022, OpenTURNS.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
+    </div>
+  </body>
+</html>

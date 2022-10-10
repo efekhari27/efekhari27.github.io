@@ -49,13 +49,30 @@
 .. only:: html
 
   .. image:: /auto_example/images/thumb/sphx_glr_plot_quadrature_weights_example_thumb.png
-    :alt: Bayesian quadrature weighting examples
+    :alt: Bayesian quadrature weighting example
 
   :ref:`sphx_glr_auto_example_plot_quadrature_weights_example.py`
 
 .. raw:: html
 
-      <div class="sphx-glr-thumbnail-title">Bayesian quadrature weighting examples</div>
+      <div class="sphx-glr-thumbnail-title">Bayesian quadrature weighting example</div>
+    </div>
+
+
+.. raw:: html
+
+    <div class="sphx-glr-thumbcontainer" tooltip="The aim of this page is to provide simple use-case where kernel design  is used to build a desi...">
+
+.. only:: html
+
+  .. image:: /auto_example/images/thumb/sphx_glr_plot_ML_validation_example_thumb.png
+    :alt: Machine learning validation example
+
+  :ref:`sphx_glr_auto_example_plot_ML_validation_example.py`
+
+.. raw:: html
+
+      <div class="sphx-glr-thumbnail-title">Machine learning validation example</div>
     </div>
 
 
@@ -70,6 +87,7 @@
    /auto_example/plot_energy_example
    /auto_example/plot_kernel_herding_example
    /auto_example/plot_quadrature_weights_example
+   /auto_example/plot_ML_validation_example
 
 
 .. only:: html

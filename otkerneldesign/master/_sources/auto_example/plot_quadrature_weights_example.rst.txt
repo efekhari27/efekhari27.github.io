@@ -18,8 +18,8 @@
 .. _sphx_glr_auto_example_plot_quadrature_weights_example.py:
 
 
-Bayesian quadrature weighting examples
-======================================
+Bayesian quadrature weighting example
+=====================================
 
 The aim of this page is to provide a simple example to 
 compute optimal-weights for quadrature on any given sample.
@@ -305,7 +305,7 @@ proportionate to the markers sizes.
 
 .. rst-class:: sphx-glr-timing
 
-   **Total running time of the script:** ( 0 minutes  2.916 seconds)
+   **Total running time of the script:** ( 0 minutes  2.314 seconds)
 
 
 .. _sphx_glr_download_auto_example_plot_quadrature_weights_example.py:

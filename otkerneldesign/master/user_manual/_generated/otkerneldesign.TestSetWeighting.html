@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>TestSetWeighting &#8212; otkerneldesign 0.1.1 documentation</title>
+    <title>TestSetWeighting &#8212; otkerneldesign 0.1.4 documentation</title>
     <link rel="stylesheet" type="text/css" href="../../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/openturns.css" />
     <link rel="stylesheet" type="text/css" href="../../_static/sg_gallery.css" />
@@ -19,11 +19,12 @@
     <script src="../../_static/underscore.js"></script>
     <script src="../../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../../_static/doctools.js"></script>
+    <script src="../../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../../_static/Icon.ico"/>
     <link rel="index" title="Index" href="../../genindex.html" />
     <link rel="search" title="Search" href="../../search.html" />
-    <link rel="next" title="GreedySupportPoints" href="otkerneldesign.GreedySupportPoints.html" />
-    <link rel="prev" title="KernelHerdingTensorized" href="otkerneldesign.KernelHerdingTensorized.html" />
+    <link rel="next" title="BayesianQuadratureWeighting" href="otkerneldesign.BayesianQuadratureWeighting.html" />
+    <link rel="prev" title="GreedySupportPoints" href="otkerneldesign.GreedySupportPoints.html" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
  
@@ -51,12 +52,12 @@
           <a href="../../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="otkerneldesign.GreedySupportPoints.html" title="GreedySupportPoints"
+          <a href="otkerneldesign.BayesianQuadratureWeighting.html" title="BayesianQuadratureWeighting"
              accesskey="N">next</a> |</li>
         <li class="right" >
-          <a href="otkerneldesign.KernelHerdingTensorized.html" title="KernelHerdingTensorized"
+          <a href="otkerneldesign.GreedySupportPoints.html" title="GreedySupportPoints"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../user_manual.html" accesskey="U">Index of classes</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">TestSetWeighting</a></li> 
       </ul>
@@ -64,14 +65,27 @@
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
         <div class="sphinxsidebarwrapper">
   <div>
+    <h3><a href="../../index.html">Table of Contents</a></h3>
+    <ul>
+<li><a class="reference internal" href="#">TestSetWeighting</a><ul>
+<li><a class="reference internal" href="#otkerneldesign.TestSetWeighting"><code class="docutils literal notranslate"><span class="pre">TestSetWeighting</span></code></a><ul>
+<li><a class="reference internal" href="#otkerneldesign.TestSetWeighting.compute_weights"><code class="docutils literal notranslate"><span class="pre">TestSetWeighting.compute_weights()</span></code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+  </div>
+  <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="otkerneldesign.KernelHerdingTensorized.html"
-                          title="previous chapter">KernelHerdingTensorized</a></p>
+    <p class="topless"><a href="otkerneldesign.GreedySupportPoints.html"
+                          title="previous chapter">GreedySupportPoints</a></p>
   </div>
   <div>
     <h4>Next topic</h4>
-    <p class="topless"><a href="otkerneldesign.GreedySupportPoints.html"
-                          title="next chapter">GreedySupportPoints</a></p>
+    <p class="topless"><a href="otkerneldesign.BayesianQuadratureWeighting.html"
+                          title="next chapter">BayesianQuadratureWeighting</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -112,9 +126,7 @@ metric (e.g, Integrated Squared Error, predictivity coefficient) estimation.</p>
 </dd>
 <dt><strong>test</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.Sample.html#openturns.Sample" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.Sample</span></code></a></span></dt><dd><p>Training set used for validating a machine learning model.</p>
 </dd>
-<dt><strong>distribution_sample</strong><span class="classifier">2-d list of float</span></dt><dd><p>Large sample that empirically represents a distribution.
-If not specified, then <em>distribution</em> and <em>candidate_set_size</em> 
-must be in order to generate it automatically.</p>
+<dt><strong>distribution_sample</strong><span class="classifier">2-d list of float</span></dt><dd><p>Large sample that empirically represents a distribution.</p>
 </dd>
 <dt><strong>kernel</strong><span class="classifier"><a class="reference external" href="http://openturns.github.io/openturns/latest/user_manual/_generated/openturns.CovarianceModel.html#openturns.CovarianceModel" title="(in OpenTURNS v1.19)"><code class="xref py py-class docutils literal notranslate"><span class="pre">openturns.CovarianceModel</span></code></a></span></dt><dd><p>Covariance kernel used to define potentials.
 By default a product of Matern kernels with smoothness 5/2.</p>
@@ -162,19 +174,19 @@ By default set to <cite>None</cite> for an interpolating model (e.g., Gaussian p
           <a href="../../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="otkerneldesign.GreedySupportPoints.html" title="GreedySupportPoints"
+          <a href="otkerneldesign.BayesianQuadratureWeighting.html" title="BayesianQuadratureWeighting"
              >next</a> |</li>
         <li class="right" >
-          <a href="otkerneldesign.KernelHerdingTensorized.html" title="KernelHerdingTensorized"
+          <a href="otkerneldesign.GreedySupportPoints.html" title="GreedySupportPoints"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../user_manual.html" >Index of classes</a> &#187;</li>
         <li class="nav-item nav-item-this"><a href="">TestSetWeighting</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>

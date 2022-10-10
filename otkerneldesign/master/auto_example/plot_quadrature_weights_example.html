@@ -6,7 +6,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="generator" content="Docutils 0.19: https://docutils.sourceforge.io/" />
 
-    <title>Bayesian quadrature weighting examples &#8212; otkerneldesign 0.1.1 documentation</title>
+    <title>Bayesian quadrature weighting example &#8212; otkerneldesign 0.1.4 documentation</title>
     <link rel="stylesheet" type="text/css" href="../_static/pygments.css" />
     <link rel="stylesheet" type="text/css" href="../_static/openturns.css" />
     <link rel="stylesheet" type="text/css" href="../_static/sg_gallery.css" />
@@ -19,10 +19,11 @@
     <script src="../_static/underscore.js"></script>
     <script src="../_static/_sphinx_javascript_frameworks_compat.js"></script>
     <script src="../_static/doctools.js"></script>
+    <script src="../_static/sphinx_highlight.js"></script>
     <link rel="shortcut icon" href="../_static/Icon.ico"/>
     <link rel="index" title="Index" href="../genindex.html" />
     <link rel="search" title="Search" href="../search.html" />
-    <link rel="prev" title="Energy computation example" href="plot_energy_example.html" />
+    <link rel="prev" title="Machine learning validation example" href="plot_ML_validation_example.html" />
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:300,400,700'
           rel='stylesheet' type='text/css' />
  
@@ -50,11 +51,11 @@
           <a href="../genindex.html" title="General Index"
              accesskey="I">index</a></li>
         <li class="right" >
-          <a href="plot_energy_example.html" title="Energy computation example"
+          <a href="plot_ML_validation_example.html" title="Machine learning validation example"
              accesskey="P">previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../examples/examples.html" accesskey="U">Examples index</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Bayesian quadrature weighting examples</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Bayesian quadrature weighting example</a></li> 
       </ul>
     </div>
       <div class="sphinxsidebar" role="navigation" aria-label="main navigation">
@@ -62,7 +63,7 @@
   <div>
     <h3><a href="../index.html">Table of Contents</a></h3>
     <ul>
-<li><a class="reference internal" href="#">Bayesian quadrature weighting examples</a><ul>
+<li><a class="reference internal" href="#">Bayesian quadrature weighting example</a><ul>
 <li><a class="reference internal" href="#dependent-bivariate-random-mixture">Dependent bivariate random mixture</a></li>
 <li><a class="reference internal" href="#bayesian-quadrature-weights">Bayesian quadrature weights</a></li>
 </ul>
@@ -72,8 +73,8 @@
   </div>
   <div>
     <h4>Previous topic</h4>
-    <p class="topless"><a href="plot_energy_example.html"
-                          title="previous chapter">Energy computation example</a></p>
+    <p class="topless"><a href="plot_ML_validation_example.html"
+                          title="previous chapter">Machine learning validation example</a></p>
   </div>
   <div role="note" aria-label="source link">
     <h3>This Page</h3>
@@ -105,8 +106,8 @@
 <p>Click <a class="reference internal" href="#sphx-glr-download-auto-example-plot-quadrature-weights-example-py"><span class="std std-ref">here</span></a>
 to download the full example code</p>
 </div>
-<section class="sphx-glr-example-title" id="bayesian-quadrature-weighting-examples">
-<span id="sphx-glr-auto-example-plot-quadrature-weights-example-py"></span><h1>Bayesian quadrature weighting examples<a class="headerlink" href="#bayesian-quadrature-weighting-examples" title="Permalink to this heading">¶</a></h1>
+<section class="sphx-glr-example-title" id="bayesian-quadrature-weighting-example">
+<span id="sphx-glr-auto-example-plot-quadrature-weights-example-py"></span><h1>Bayesian quadrature weighting example<a class="headerlink" href="#bayesian-quadrature-weighting-example" title="Permalink to this heading">¶</a></h1>
 <p>The aim of this page is to provide a simple example to
 compute optimal-weights for quadrature on any given sample.</p>
 <div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
@@ -232,7 +233,7 @@ proportionate to the markers sizes.</p>
 <span class="n">plt</span><span class="o">.</span><span class="n">show</span><span class="p">()</span>
 </pre></div>
 </div>
-<img src="../_images/sphx_glr_plot_quadrature_weights_example_004.png" srcset="../_images/sphx_glr_plot_quadrature_weights_example_004.png" alt="Sampling a bivariate random mixture" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.916 seconds)</p>
+<img src="../_images/sphx_glr_plot_quadrature_weights_example_004.png" srcset="../_images/sphx_glr_plot_quadrature_weights_example_004.png" alt="Sampling a bivariate random mixture" class = "sphx-glr-single-img"/><p class="sphx-glr-timing"><strong>Total running time of the script:</strong> ( 0 minutes  2.314 seconds)</p>
 <div class="sphx-glr-footer sphx-glr-footer-example docutils container" id="sphx-glr-download-auto-example-plot-quadrature-weights-example-py">
 <div class="sphx-glr-download sphx-glr-download-python docutils container">
 <p><a class="reference download internal" download="" href="../_downloads/20d1636b7ca574b8c9f53e476f09480a/plot_quadrature_weights_example.py"><code class="xref download docutils literal notranslate"><span class="pre">Download</span> <span class="pre">Python</span> <span class="pre">source</span> <span class="pre">code:</span> <span class="pre">plot_quadrature_weights_example.py</span></code></a></p>
@@ -258,16 +259,16 @@ proportionate to the markers sizes.</p>
           <a href="../genindex.html" title="General Index"
              >index</a></li>
         <li class="right" >
-          <a href="plot_energy_example.html" title="Energy computation example"
+          <a href="plot_ML_validation_example.html" title="Machine learning validation example"
              >previous</a> |</li>
-        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.1 documentation</a> &#187;</li>
+        <li class="nav-item nav-item-0"><a href="../index.html">otkerneldesign 0.1.4 documentation</a> &#187;</li>
           <li class="nav-item nav-item-1"><a href="../examples/examples.html" >Examples index</a> &#187;</li>
-        <li class="nav-item nav-item-this"><a href="">Bayesian quadrature weighting examples</a></li> 
+        <li class="nav-item nav-item-this"><a href="">Bayesian quadrature weighting example</a></li> 
       </ul>
     </div>
     <div class="footer" role="contentinfo">
         &#169; Copyright 2022, OpenTURNS.
-      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.1.1.
+      Created using <a href="https://www.sphinx-doc.org/">Sphinx</a> 5.2.3.
     </div>
   </body>
 </html>
