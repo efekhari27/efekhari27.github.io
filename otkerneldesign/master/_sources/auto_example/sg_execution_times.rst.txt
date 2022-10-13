@@ -5,14 +5,14 @@
 
 Computation times
 =================
-**00:42.687** total execution time for **auto_example** files:
+**00:43.072** total execution time for **auto_example** files:
 
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_example_plot_energy_example.py` (``plot_energy_example.py``)                         | 00:34.061 | 0.0 MB |
+| :ref:`sphx_glr_auto_example_plot_energy_example.py` (``plot_energy_example.py``)                         | 00:35.473 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_example_plot_kernel_herding_example.py` (``plot_kernel_herding_example.py``)         | 00:05.199 | 0.0 MB |
+| :ref:`sphx_glr_auto_example_plot_kernel_herding_example.py` (``plot_kernel_herding_example.py``)         | 00:04.325 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_example_plot_quadrature_weights_example.py` (``plot_quadrature_weights_example.py``) | 00:02.314 | 0.0 MB |
+| :ref:`sphx_glr_auto_example_plot_quadrature_weights_example.py` (``plot_quadrature_weights_example.py``) | 00:02.111 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
-| :ref:`sphx_glr_auto_example_plot_ML_validation_example.py` (``plot_ML_validation_example.py``)           | 00:01.113 | 0.0 MB |
+| :ref:`sphx_glr_auto_example_plot_ML_validation_example.py` (``plot_ML_validation_example.py``)           | 00:01.162 | 0.0 MB |
 +----------------------------------------------------------------------------------------------------------+-----------+--------+
